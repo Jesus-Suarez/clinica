@@ -769,8 +769,14 @@ section {
   font-size: 14px;
 }
 
-.about .video-box {
-  background: url("../img/about.jpg") center center no-repeat;
+.about .video-box1 {
+  background: url("../img/promocional.jpg") center center no-repeat;
+  background-size: cover;
+  min-height: 500px;
+}
+
+.about .video-box2 {
+  background: url("../img/institucional.jpg") center center no-repeat;
   background-size: cover;
   min-height: 500px;
 }
