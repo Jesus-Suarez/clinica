@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class medicamento extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'nombre_med',
+        'cant_disp',
+        'costo'
+    ];
 }

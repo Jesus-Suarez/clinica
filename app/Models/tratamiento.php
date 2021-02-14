@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class tratamiento extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'descripcion_trat',
+    ];
 }

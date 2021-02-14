@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class consulta extends Model
 {
-    use HasFactory;
+    protected $fillable = ['costo', 'id_cita', 'id_tratamiento'];
 }

@@ -15,10 +15,10 @@ class CreateTratamientosTable extends Migration
     {
         Schema::create('tratamientos', function (Blueprint $table) {
             $table->bigIncrements('id_tratamiento');
-            
-            $table->longText('descripcion_est');
-            
-            $table->softDeletes();            
+
+            $table->longText('descripcion_trat');
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

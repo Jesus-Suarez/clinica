@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class estudio extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'nombre_est',
+        'descripcion_est',
+    ];
 }

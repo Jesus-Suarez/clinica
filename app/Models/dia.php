@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class dia extends Model
 {
-    use HasFactory;
+    protected $fillable = ['id_doctor', 'id_horario'];
 }
