@@ -162,7 +162,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-dna"></i></div>
               <h4><a href="">Objetivos</a></h4>
@@ -253,8 +253,11 @@
 
         <div class="section-title">
           <h2>Compromiso</h2>
-          <p>Nuestro compromiso es..
-          </p>
+          <p>Nuestro compromiso es tener el liderazgo de sistemas de administración de clinicas para los pacientes y doctores
+            superando a la competencia local y asi ayudar a combatir la lucha contra las enfermedades dando el mejor servicio posible.
+          </p> <br>
+          <img src="{{ asset('img/gallery/equipo.jpg') }}" alt="" class="img-fluid">
+              </a>
         </div>
 
 
