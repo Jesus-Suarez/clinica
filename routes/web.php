@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\principalController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\principalAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,6 @@ Route::get('/', function () {
 });
 
 Route::get('index',[principalController::class,'index']);
+
+/* Admin */
+Route::get('templete',[principalAdminController::class,'templete']);
