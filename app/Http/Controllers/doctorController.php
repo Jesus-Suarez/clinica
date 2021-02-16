@@ -28,11 +28,11 @@ class doctorController extends Controller
             'ap_mat_doc' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'sexo_doc' => 'required',
             'fecha_nac' => 'required',
-            'telefono_doc' => 'required',
-            'especialidad_id' => 'required',
-            'email_doc' => 'required',
-            'pass' => 'required',
-            'foto_doc' => 'mimes:jpeg,png,jpg,gif'
+            'telefono_doc' => 'required|regex:/^[0-9]{10}$/',
+            'especialidad_id' => 'required|integer|not_in:0',
+            'email_doc' => 'required|email',
+            'pass' => 'required|password|regex:/^[A-Z,a-z,0-9,á,é,í,ó,ú,ñ]*$/',
+            'foto_doc' => 'required|mimes:jpeg,png,jpg,gif'
             
 
         ]);

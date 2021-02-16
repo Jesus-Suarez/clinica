@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Digital Clinic Bootstrap Template - Index</title>
+  <title>Digital Clinic</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -81,7 +81,7 @@
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
       <h1>Bienvenido a Digital Clinic</h1>
-      <h2>Somos una clinica donde puedes solicitar citas de una manera muy fácil</h2>
+      <h2>Somos una clínica donde puedes solicitar citas de una manera muy fácil</h2>
       <a href="#planeacion" class="btn-get-started scrollto">Conócenos</a>
     </div>
   </section><!-- End Hero -->
@@ -97,7 +97,7 @@
             <div class="content">
               <h3>Por qué elegir Digital Clinic?</h3>
               <p>
-                Porque tenemos muchas metas para lograr que nuestros pacientes tengan el mejor servicio posible. Asi como Crear experiencias
+                Porque tenemos muchas metas para lograr que nuestros pacientes tengan el mejor servicio posible. Así como Crear experiencias
                 más positivas de manejo de datos para los administradores y secretarios que se encargan del manejo de una clínica médica.</p>
             </div>
           </div>
@@ -108,7 +108,7 @@
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-receipt"></i>
                     <h4>Nuestro compromiso</h4>
-                    <p>Conoce con que esta comprometida nuestra empresa</p>
+                    <p>Conoce con que está comprometida nuestra empresa</p>
                   </div>
                 </div>
                 <div class="col-xl-4 d-flex align-items-stretch">
@@ -121,8 +121,8 @@
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-images"></i>
-                    <h4>Visita la galeria</h4>
-                    <p>Contamos con una set fotografica de nuestra propuesta de valor</p>
+                    <h4>Visita la galería</h4>
+                    <p>Contamos con un set fotográfica de nuestra propuesta de valor</p>
                   </div>
                 </div>
               </div>
@@ -139,7 +139,7 @@
 
         <div class="section-title">
           <h2>Planeación Estratégica</h2>
-          <p>A continuacion te daremos a conocer la Planeación estratégica donde veras cual es nuestra Visión,
+          <p>A continuación te daremos a conocer la Planeación estratégica donde veras cual es nuestra Visión,
             Misión, Valores, Objetivos y nuestras metas que tenemos como empresa.
           </p>
         </div>
@@ -166,8 +166,8 @@
             <div class="icon-box">
               <div class="icon"><i class="fas fa-dna"></i></div>
               <h4><a href="">Objetivos</a></h4>
-              <p>Posicionarnos como una gran que supere a la competencia en la parte
-                administrativa y así facilitar el trabajo de los doctores.</p>
+              <p>Posicionarnos como una gran que supere a la competencia facilitando la solicitud de una cita
+                médica para agilizar el trabajo de los doctores administrando sus consultas.</p>
             </div>
           </div>
 
@@ -176,23 +176,24 @@
           </div>
 
           <div class="section-title">
-            <h2>Valores y Metas</h2>
+            <h2>Valores</h2>
           </div>
 
-          <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
+          <div class="col-lg-12 col-md-12 d-flex align-items-stretch">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-hospital-user"></i></div>
-              <h4><a href="">Valores</a></h4>
               <p>Somos una empresa comprometida con la calidad de nuestro trabajo, además de ofrecer
                 una amplia competitividad entre nuestro equipo de trabajo. La responsabilidad con el
                 desarrollo en equipo garantiza un buen trabajo competente.</p>
             </div>
           </div>
+          <div class="section-title">
+            <h2>Metas</h2>
+          </div>
 
-          <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
+          <div class="col-lg-12 col-md-12 d-flex align-items-stretch">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-wheelchair"></i></div>
-              <h4><a href="">Metas</a></h4>
               <p>Crear experiencias más positivas de manejo de datos para los administradores y secretarios
                 que se encargan del manejo de una clínica médica. Probar nuevas ideas y acciones que mejoren
                 la situación administrativa y económica en las clínicas medicas donde se presente este proyecto.
@@ -210,12 +211,12 @@
 
         <div class="row">
           <div class="col-xl-7 col-lg-6 video-box1 d-flex justify-content-center align-items-stretch position-relative">
-            <a href="https://www.youtube.com/watch?v=7XpvkP3hqHE" class="glightbox play-btn mb-4"></a>
+            <a href="https://youtu.be/HQ-EiDPMGBc" class="glightbox play-btn mb-4"></a>
           </div>
 
           <div class="col-xl-5 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
             <h3>Video promocional</h3>
-            <p>En esta seccion de la página te presentamos nuestro video promocional de nuestra empresa.</p>
+            <p>En esta sección de la página te presentamos nuestro video promocional de nuestra empresa.</p>
 
 
             <div class="icon-box">
@@ -234,7 +235,7 @@
         <div class="row">
           <div class="col-xl-5 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
             <h3>Video institucional</h3>
-            <p>En esta seccion de la página te presentamos nuestro video institucional de nuestra empresa.</p>
+            <p>En esta sección de la página te presentamos nuestro video institucional de nuestra empresa.</p>
             <div class="icon-box">
               <div class="icon"><i class="bx bx-gift"></i></div>
               <p class="description">Te invitamos a ver nuestro video institucional de la empresa.</p>
@@ -253,11 +254,11 @@
 
         <div class="section-title">
           <h2>Compromiso</h2>
-          <p>Nuestro compromiso es tener el liderazgo de sistemas de administración de clinicas para los pacientes y doctores
-            superando a la competencia local y asi ayudar a combatir la lucha contra las enfermedades dando el mejor servicio posible.
+          <p>Nuestro compromiso es tener el liderazgo de sistemas de administración de clínicas para los pacientes y doctores
+            superando a la competencia local y así ayudar a combatir la lucha contra las enfermedades dando el mejor servicio posible.
           </p> <br>
           <img src="{{ asset('img/gallery/equipo.jpg') }}" alt="" class="img-fluid">
-              </a>
+          </a>
         </div>
 
 
@@ -270,8 +271,8 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Gallery</h2>
-          <p>A continuacion te mostramos una galeria de fotografias que no identifica como la empresa "DigitalClinic",
+          <h2>Galería</h2>
+          <p>A continuación, te mostramos una galería de fotografías que no identifica como la empresa "DigitalClinic",
             esperamos que sea de tu agrado.</p>
         </div>
       </div>
@@ -421,7 +422,7 @@
 
         <div class="section-title">
           <h2>Integrantes</h2>
-          <p>En esta seccion te presentamos a los integrantes del equipo de desarrollo de software de la empresa DigitalClinic.</p>
+          <p>En esta sección te presentamos a los integrantes del equipo de desarrollo de software de la empresa DigitalClinic.</p>
         </div>
 
         <div class="row">
@@ -444,7 +445,7 @@
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="{{ asset('img/Desarrolladores/oscar.jpg') }}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Oscar Jimenez Reyes</h4>
+                <h4>Oscar Jiménez Reyes</h4>
                 <span>Desarrollador Web.</span>
                 <p>Oscar es un ingeniero del área de desarrollo de software de la empresa.</p>
                 <div class="social">
@@ -456,9 +457,9 @@
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="{{ asset('img/Desarrolladores/jesus.png') }}" class="img-fluid" alt=""></div>
+            <div class="pic"><img src="{{ asset('img/Desarrolladores/jesus.png') }}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Jesus Suarez Alvarez</h4>
+                <h4>Jesús Suarez Álvarez</h4>
                 <span>Desarrollador Web.</span>
                 <p>Jesus es un ingeniero del área de desarrollo de software de la empresa.</p>
                 <div class="social">
@@ -520,7 +521,7 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="#" method="post" role="form" class="php-email-form" re>
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" required>
@@ -540,7 +541,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Tu mensaje ha sido enviado. Gracias!</div>
               </div>
-              <div class="text-center"><button type="submit">Enviar mensaje</button></div>
+              <div class="text-center"><button type="submit" onclick="myFunction()">Enviar mensaje</button></div>
             </form>
 
           </div>
@@ -577,6 +578,12 @@
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+
+  <script>
+    function myFunction() {
+      alert("Gracias por tu mensaje!.");
+    }
+  </script>
   <!-- Vendor JS Files -->
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
