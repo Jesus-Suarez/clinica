@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\principalController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\principalController;
 use App\Http\Controllers\principalAdminController;
+use App\Http\Controllers\doctorController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,5 @@ Route::get('index',[principalController::class,'index']);
 
 /* Admin */
 Route::get('templete',[principalAdminController::class,'templete']);
+Route::get('nuevoDoctor',[doctorController::class,'nuevoDoctor']);
+Route::POST('guardaDoctor',[doctorController::class,'guardaDoctor'])->name('guardaDoctor');;

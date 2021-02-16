@@ -19,11 +19,17 @@ class CreateDoctoresTable extends Migration
             $table->string('nombre_doc', 30);
             $table->string('ap_pat_doc', 30);
             $table->string('ap_mat_doc', 30);
+            $table->string('sexo', 1);
+            $table->date('fecha_nac');
             $table->string('telefono_doc', 30);
+            $table->unsignedBigInteger('especialidad_id');
             $table->string('email_doc', 50)->unique();
-            $table->string('password');
-            $table->string('foto_doc',100)->default('Sinfoto.jpg');;
-            $table->string('especialidad',100);
+            $table->string('pass');
+            $table->string('foto_doc',100)->default('Sinfoto.jpg');
+            
+            $table->foreign('especialidad_id')->references('especialidad_id')->on('especialidades')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             $table->softDeletes();            
             $table->timestamps();
