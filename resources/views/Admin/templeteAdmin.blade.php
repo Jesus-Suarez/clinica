@@ -142,34 +142,34 @@
                             <a href="{{ asset('nuevaEspecialidad') }}"><i class="fa fa-tag fa-fw"></i> Especialidades</a>
                         </li>
                         <li>
-                            <a href="{{ asset('') }}"><i class="fa fa-user-plus fa-fw"></i> Pacientes</a>
+                            <a href="{{ asset('nuevoPaciente') }}"><i class="fa fa-user-plus fa-fw"></i> Pacientes</a>
                         </li>
                         <li>
-                            <a href="{{ asset('') }}"><i class="fa fa-check fa-fw"></i> Citas</a>
+                            <a href="{{ asset('nuevaCita') }}"><i class="fa fa-check fa-fw"></i> Citas</a>
                         </li>
                         <li>
-                            <a href="{{ asset('') }}"><i class="fa fa-book fa-fw"></i> Consultas</a>
+                            <a href="{{ asset('nuevaConsulta') }}"><i class="fa fa-book fa-fw"></i> Consultas</a>
                         </li>
                         <li>
-                            <a href="{{ asset('') }}"><i class="fa fa-signal fa-fw"></i> Tratamientos</a>
+                            <a href="{{ asset('nuevoTratamiento') }}"><i class="fa fa-signal fa-fw"></i> Tratamientos</a>
                         </li>
                         <li>
-                            <a href="{{ asset('') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
+                            <a href="{{ asset('nuevoHorario') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
                         </li>
                         <li>
-                            <a href="{{ asset('') }}"><i class="fa fa-times-circle fa-fw"></i> Dias</a>
+                            <a href="{{ asset('nuevoDia') }}"><i class="fa fa-times-circle fa-fw"></i> Dias</a>
                         </li>
                         <li>
-                            <a href="{{ asset('') }}"><i class="fa fa-list fa-fw"></i> Estudios</a>
+                            <a href="{{ asset('nuevoEstudio') }}"><i class="fa fa-list fa-fw"></i> Estudios</a>
                         </li>
                         <li>
-                            <a href="{{ asset('') }}"><i class="fa fa-check-square-o fa-fw"></i> Consultas Tratamientos</a>
+                            <a href="{{ asset('nuevaConsulta_trat') }}"><i class="fa fa-check-square-o fa-fw"></i> Consultas Tratamientos</a>
                         </li>
                         <li>
-                            <a href="{{ asset('') }}"><i class="fa fa-arrows fa-fw"></i> Medicamentos</a>
+                            <a href="{{ asset('nuevoMedicamento') }}"><i class="fa fa-arrows fa-fw"></i> Medicamentos</a>
                         </li>
                         <li>
-                            <a href="{{ asset('') }}"><i class="fa fa-eye fa-fw"></i> Consultorios</a>
+                            <a href="{{ asset('nuevoConsultorio') }}"><i class="fa fa-eye fa-fw"></i> Consultorios</a>
                         </li>
  
 
