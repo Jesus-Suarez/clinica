@@ -16,6 +16,8 @@ class paciente extends Model
         'nombre_pac',
         'ap_pat_pac',
         'ap_mat_pac',
+        'fecha_nac',
+        'sexo',
         'telefono_pac',
         'email_pac',
         'password',

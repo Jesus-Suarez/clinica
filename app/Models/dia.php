@@ -12,6 +12,6 @@ class dia extends Model
     use SoftDeletes;
 
     protected $primaryKey = 'id_dia';
-    protected $fillable = ['id_doctor', 'id_horario'];
+    protected $fillable = ['nombre_dia','id_doctor', 'id_horario'];
     protected $dates = ['deleted_at'];
 }
