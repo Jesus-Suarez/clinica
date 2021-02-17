@@ -17,10 +17,10 @@ class paciente extends Model
         'ap_pat_pac',
         'ap_mat_pac',
         'fecha_nac',
-        'sexo',
+        'sexo_pac',
         'telefono_pac',
         'email_pac',
-        'password',
+        'pass_pac',
         'foto_pac',
         'estado',
         'municipio',
@@ -30,3 +30,4 @@ class paciente extends Model
     ];
     protected $dates = ['deleted_at'];
 }
+ 

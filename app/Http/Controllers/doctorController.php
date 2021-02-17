@@ -33,7 +33,7 @@ class doctorController extends Controller
             'telefono_doc' => 'required|regex:/^[0-9]{10}$/',
             'especialidad_id' => 'required|integer|not_in:0',
             'email_doc' => 'required|email',
-            'pass' => 'required|password|regex:/^[A-Z,a-z,0-9,á,é,í,ó,ú,ñ]*$/',
+            'pass' => 'required|regex:/^[A-Z,a-z,0-9,á,é,í,ó,ú,ñ]*$/',
             'foto_doc' => 'required|mimes:jpeg,png,jpg,gif'
 
 
