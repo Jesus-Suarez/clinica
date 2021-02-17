@@ -77,9 +77,9 @@ return [
         'array' => 'The :attribute must not have more than :value items.',
     ],
     'max' => [
-        'numeric' => 'The :attribute may not be greater than :max.',
+        'numeric' => 'La cantida no puede ser mayor a 10.',
         'file' => 'The :attribute may not be greater than :max kilobytes.',
-        'string' => 'The :attribute may not be greater than :max characters.',
+        'string' => 'El campo no debe pasar de :max carácteres.',
         'array' => 'The :attribute may not have more than :max items.',
     ],
     'mimes' => 'La foto debe ser de tipo (jpg, png ,gif, jpeg).',
@@ -87,7 +87,7 @@ return [
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',
         'file' => 'El campo :attribute debe ser menor a :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => 'El campo debé tener por lo menos :min carácteres.',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'multiple_of' => 'The :attribute must be a multiple of :value.',
