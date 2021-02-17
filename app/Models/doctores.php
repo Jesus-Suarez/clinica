@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
 class doctores extends Model
 {
-    protected $primaryKey = 'id_usuario'; 
+    use HasFactory;
+    use SoftDeletes;
+
+    protected $primaryKey = 'id_doctores';
     protected $fillable = [
         'nombre_doc',
         'ap_pat_doc',
@@ -22,4 +24,5 @@ class doctores extends Model
         'pass',
         'foto_doc'
     ];
+    protected $dates = ['deleted_at'];
 }
