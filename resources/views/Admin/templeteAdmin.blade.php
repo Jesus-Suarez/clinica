@@ -9,8 +9,8 @@
     <meta name="author" content="">
 
     <title>@yield('titulo')</title>
-      <!-- icono -->
-  <link href="{{ asset('img/logo.jpg') }}" rel="icon">
+    <!-- icono -->
+    <link href="{{ asset('img/logo.jpg') }}" rel="icon">
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/admin/bootstrap.min.css') }}" rel="stylesheet">
@@ -110,7 +110,7 @@
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> Uriel Aguilar <b class="caret"></b>
+                        <i class="fa fa-user fa-fw"></i> Jesus Suarez <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> Perfil de Usuario</a>
@@ -129,7 +129,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                        <img src="{{ asset('img/logo.jpg') }}" height="30" width="30" class=" rounded" alt="">
+                            <img src="{{ asset('img/logo.jpg') }}" height="30" width="30" class=" rounded" alt="">
 
                         </li>
                         <li>
@@ -171,7 +171,7 @@
                         <li>
                             <a href="{{ asset('nuevoConsultorio') }}"><i class="fa fa-eye fa-fw"></i> Consultorios</a>
                         </li>
- 
+
 
                     </ul>
                 </div>
