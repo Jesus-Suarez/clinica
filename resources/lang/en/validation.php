@@ -85,7 +85,7 @@ return [
     'mimes' => 'La foto debe ser de tipo (jpg, png ,gif, jpeg).',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
-        'numeric' => 'The :attribute must be at least :min.',
+        'numeric' => 'El campo :attribute no puede ser menor a :min.',
         'file' => 'El campo :attribute debe ser menor a :min kilobytes.',
         'string' => 'El campo debé tener por lo menos :min carácteres.',
         'array' => 'The :attribute must have at least :min items.',

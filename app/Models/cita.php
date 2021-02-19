@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class cita extends Model
 {
-    use SoftDeletes;
-
     use HasFactory;
     use SoftDeletes;
 

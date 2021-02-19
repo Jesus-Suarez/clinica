@@ -12,6 +12,7 @@ class consulta_tratController extends Controller
     {
         return view('Admin.Consultas_tratamientos.nuevaConsulta_trat');
     }
+    
     public function guardaConsulta_trat(Request $request)
     {
         $id_consulta = $request->id_consulta;

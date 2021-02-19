@@ -33,59 +33,62 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('index',[principalController::class,'index']);
+Route::get('index', [principalController::class, 'index']);
 
 /* --------------------- Admin -------------------*/
 
-Route::get('templete',[principalAdminController::class,'templete']);
+Route::get('templete', [principalAdminController::class, 'templete']);
 
 /* Doctor */
-Route::get('nuevoDoctor',[doctorController::class,'nuevoDoctor']);
-Route::POST('guardaDoctor',[doctorController::class,'guardaDoctor'])->name('guardaDoctor');
+Route::get('nuevoDoctor', [doctorController::class, 'nuevoDoctor']);
+Route::POST('guardaDoctor', [doctorController::class, 'guardaDoctor'])->name('guardaDoctor');
 
 /* Especialidad */
-Route::get('nuevaEspecialidad',[especialidadController::class,'nuevaEspecialidad']);
-Route::POST('guardaEspecialidad',[especialidadController::class,'guardaEspecialidad'])->name('guardaEspecialidad');
+Route::get('nuevaEspecialidad', [especialidadController::class, 'nuevaEspecialidad']);
+Route::POST('guardaEspecialidad', [especialidadController::class, 'guardaEspecialidad'])->name('guardaEspecialidad');
 
 /* Paciente */
-Route::get('nuevoPaciente',[pacienteController::class,'nuevoPaciente']);
-Route::POST('guardaPaciente',[pacienteController::class,'guardaPaciente'])->name('guardaPaciente');
+Route::get('nuevoPaciente', [pacienteController::class, 'nuevoPaciente']);
+Route::POST('guardaPaciente', [pacienteController::class, 'guardaPaciente'])->name('guardaPaciente');
 
 /* Horario */
-Route::get('nuevoHorario',[horarioController::class,'nuevoHorario']);
-Route::POST('guardaHorario',[horarioController::class,'guardaHorario'])->name('guardaHorario');
+Route::get('nuevoHorario', [horarioController::class, 'nuevoHorario']);
+Route::POST('guardaHorario', [horarioController::class, 'guardaHorario'])->name('guardaHorario');
 
 /* Estudio */
-Route::get('nuevoEstudio',[estudioController::class,'nuevoEstudio']);
-Route::POST('guardaEstudio',[estudioController::class,'guardaEstudio'])->name('guardaEstudio');
+Route::get('nuevoEstudio', [estudioController::class, 'nuevoEstudio']);
+Route::POST('guardaEstudio', [estudioController::class, 'guardaEstudio'])->name('guardaEstudio');
 
 /* Medicamento */
-Route::get('nuevoMedicamento',[medicamentoController::class,'nuevoMedicamento']);
-Route::POST('guardaMedicamento',[medicamentoController::class,'guardaMedicamento'])->name('guardaMedicamento');
+Route::get('nuevoMedicamento', [medicamentoController::class, 'nuevoMedicamento']);
+Route::POST('guardaMedicamento', [medicamentoController::class, 'guardaMedicamento'])->name('guardaMedicamento');
 
 /* Tratamiento */
-Route::get('nuevoTratamiento',[tratamientoController::class,'nuevoTratamiento']);
-Route::POST('guardaTratamiento',[tratamientoController::class,'guardaTratamiento'])->name('guardaTratamiento');
+Route::get('nuevoTratamiento', [tratamientoController::class, 'nuevoTratamiento']);
+Route::POST('guardaTratamiento', [tratamientoController::class, 'guardaTratamiento'])->name('guardaTratamiento');
 
 /* Dia */
-Route::get('nuevoDia',[diaController::class,'nuevoDia']);
-Route::POST('guardaDia',[diaController::class,'guardaDia'])->name('guardaDia');
+Route::get('nuevoDia', [diaController::class, 'nuevoDia']);
+Route::POST('guardaDia', [diaController::class, 'guardaDia'])->name('guardaDia');
 
 /* Consulta Tratamiento */
-Route::get('nuevaConsulta_trat',[consulta_tratController::class,'nuevaConsulta_trat']);
-Route::POST('guardaConsulta_trat',[consulta_tratController::class,'guardaConsulta_trat'])->name('guardaConsulta_trat');
+Route::get('nuevaConsulta_trat', [consulta_tratController::class, 'nuevaConsulta_trat']);
+Route::POST('guardaConsulta_trat', [consulta_tratController::class, 'guardaConsulta_trat'])->name('guardaConsulta_trat');
 
 /* Consultorio */
-Route::get('nuevoConsultorio',[consultorioController::class,'nuevoConsultorio']);
-Route::POST('guardaConsultorio',[consultorioController::class,'guardaConsultorio'])->name('guardaConsultorio');
+Route::get('nuevoConsultorio', [consultorioController::class, 'nuevoConsultorio']);
+Route::POST('guardaConsultorio', [consultorioController::class, 'guardaConsultorio'])->name('guardaConsultorio');
 
-/* Cita */
-Route::get('nuevaCita',[citaController::class,'nuevaCita']);
-Route::POST('guardaCita',[citaController::class,'guardaCita'])->name('guardaCita');
+
+Route::get('nuevaCita', [citaController::class, 'nuevaCita']);
+Route::POST('guardaCita', [citaController::class, 'guardaCita'])->name('guardaCita');
 
 /* Consulta */
-Route::get('nuevaConsulta',[consultaController::class,'nuevaConsulta']);
-Route::POST('guardaConsulta',[consultaController::class,'guardaConsulta'])->name('guardaConsulta');
+Route::get('nuevaConsulta', [consultaController::class, 'nuevaConsulta']);
+Route::POST('guardaConsulta', [consultaController::class, 'guardaConsulta'])->name('guardaConsulta');
 
+Route::get('nuevaEspecialidad', [especialidadController::class, 'nuevaEspecialidad']);
+Route::POST('guardarEspecialidad', [especialidadController::class, 'guardarEspecialidad'])->name('guardarEspecialidad');
 
-
+Route::get('nuevoTratamiento', [tratamientoController::class, 'nuevoTratamiento']);
+Route::POST('guardaTratamiento', [tratamientoController::class, 'guardaTratamiento'])->name('guardaTratamiento');
