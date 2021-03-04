@@ -136,10 +136,10 @@
                             <a href="{{ asset('') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="{{ asset('nuevoDoctor') }}"><i class="fa fa-users fa-fw"></i> Doctores</a>
+                            <a href="{{ asset('Doctores') }}"><i class="fa fa-users fa-fw"></i> Doctores</a>
                         </li>
                         <li>
-                            <a href="{{ asset('nuevaEspecialidad') }}"><i class="fa fa-tag fa-fw"></i> Especialidades</a>
+                            <a href="{{ asset('Especialidades') }}"><i class="fa fa-tag fa-fw"></i> Especialidades</a>
                         </li>
                         <li>
                             <a href="{{ asset('nuevoPaciente') }}"><i class="fa fa-user-plus fa-fw"></i> Pacientes</a>

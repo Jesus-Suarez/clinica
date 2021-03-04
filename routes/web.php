@@ -40,12 +40,28 @@ Route::get('index', [principalController::class, 'index']);
 Route::get('templete', [principalAdminController::class, 'templete']);
 
 /* Doctor */
+Route::get('Doctores', [doctorController::class, 'Doctores'])->name('Doctores');
 Route::get('nuevoDoctor', [doctorController::class, 'nuevoDoctor']);
 Route::POST('guardaDoctor', [doctorController::class, 'guardaDoctor'])->name('guardaDoctor');
+Route::get('modificaDoctor/{id_doctor}', [doctorController::class, 'modificaDoctor'])->name('modificaDoctor');
+Route::POST('updateDoctor', [doctorController::class, 'updateDoctor'])->name('updateDoctor');
+Route::get('DoctoresElim', [doctorController::class, 'DoctoresElim'])->name('DoctoresElim');
+Route::get('desactivarDoctor/{id_doctor}', [doctorController::class, 'desactivarDoctor'])->name('desactivarDoctor');
+Route::get('activarDoctor/{id_doctor}', [doctorController::class, 'activarDoctor'])->name('activarDoctor');
+Route::get('eliminarDoctor/{id_doctor}', [doctorController::class, 'eliminarDoctor'])->name('eliminarDoctor');
+
 
 /* Especialidad */
+Route::get('Especialidades', [especialidadController::class, 'Especialidades'])->name('Especialidades');
 Route::get('nuevaEspecialidad', [especialidadController::class, 'nuevaEspecialidad']);
 Route::POST('guardaEspecialidad', [especialidadController::class, 'guardaEspecialidad'])->name('guardaEspecialidad');
+Route::get('modificaEspecialidad/{especialidad_id}', [especialidadController::class, 'modificaEspecialidad'])->name('modificaEspecialidad');
+Route::POST('updateEspecialidad', [especialidadController::class, 'updateEspecialidad'])->name('updateEspecialidad');
+Route::get('EspecialidadesElim', [especialidadController::class, 'EspecialidadesElim'])->name('EspecialidadesElim');
+Route::get('desactivarEspecialidad/{especialidad_id}', [especialidadController::class, 'desactivarEspecialidad'])->name('desactivarEspecialidad');
+Route::get('activarEspecialidad/{especialidad_id}', [especialidadController::class, 'activarEspecialidad'])->name('activarEspecialidad');
+Route::get('eliminarEspecialidad/{especialidad_id}', [especialidadController::class, 'eliminarEspecialidad'])->name('eliminarEspecialidad');
+
 
 /* Paciente */
 Route::get('nuevoPaciente', [pacienteController::class, 'nuevoPaciente']);
