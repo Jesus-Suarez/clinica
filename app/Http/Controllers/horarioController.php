@@ -26,10 +26,10 @@ class horarioController extends Controller
             'hora_fin' => 'required',
         ]);
 
-        $esp = new horarios();
-        $esp->hora_inicio = $request->hora_inicio;
-        $esp->hora_fin = $request->hora_fin;
-        $esp->save();
+        $hor = new horarios();
+        $hor->hora_inicio = $request->hora_inicio;
+        $hor->hora_fin = $request->hora_fin;
+        $hor->save();
         Session::flash('message', 'Horario agregado satisfactoriamente!');
         return redirect()->route('Horarios');
     }
@@ -50,10 +50,10 @@ class horarioController extends Controller
         ]);
 
 
-        $esp = horarios::find($id_horario);
-        $esp->hora_inicio = $request->hora_inicio;
-        $esp->hora_fin = $request->hora_fin;
-        $esp->save();
+        $hor = horarios::find($id_horario);
+        $hor->hora_inicio = $request->hora_inicio;
+        $hor->hora_fin = $request->hora_fin;
+        $hor->save();
         Session::flash('message', 'El horario se modifico satisfactoriamente!');
         return redirect()->route('Horarios');
     }

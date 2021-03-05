@@ -89,8 +89,15 @@ Route::get('nuevoMedicamento', [medicamentoController::class, 'nuevoMedicamento'
 Route::POST('guardaMedicamento', [medicamentoController::class, 'guardaMedicamento'])->name('guardaMedicamento');
 
 /* Tratamiento */
+Route::get('Tratamientos', [tratamientoController::class, 'Tratamientos'])->name('Tratamientos');
 Route::get('nuevoTratamiento', [tratamientoController::class, 'nuevoTratamiento']);
 Route::POST('guardaTratamiento', [tratamientoController::class, 'guardaTratamiento'])->name('guardaTratamiento');
+Route::get('modificaTratamiento/{id_tratamiento}', [tratamientoController::class, 'modificaTratamiento'])->name('modificaTratamiento');
+Route::POST('updateTratamiento', [tratamientoController::class, 'updateTratamiento'])->name('updateTratamiento');
+Route::get('TratamientosElim', [tratamientoController::class, 'TratamientosElim'])->name('TratamientosElim');
+Route::get('desactivarTratamiento/{id_tratamiento}', [tratamientoController::class, 'desactivarTratamiento'])->name('desactivarTratamiento');
+Route::get('activarTratamiento/{id_tratamiento}', [tratamientoController::class, 'activarTratamiento'])->name('activarTratamiento');
+Route::get('eliminarTratamiento/{id_tratamiento}', [tratamientoController::class, 'eliminarTratamiento'])->name('eliminarTratamiento');
 
 /* Dia */
 Route::get('nuevoDia', [diaController::class, 'nuevoDia']);
