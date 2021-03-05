@@ -151,10 +151,10 @@
                             <a href="{{ asset('nuevaConsulta') }}"><i class="fa fa-book fa-fw"></i> Consultas</a>
                         </li>
                         <li>
-                            <a href="{{ asset('nuevoTratamiento') }}"><i class="fa fa-signal fa-fw"></i> Tratamientos</a>
+                            <a href="{{ asset('Tratamientos') }}"><i class="fa fa-signal fa-fw"></i> Tratamientos</a>
                         </li>
                         <li>
-                            <a href="{{ asset('nuevoHorario') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
+                            <a href="{{ asset('Horarios') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
                         </li>
                         <li>
                             <a href="{{ asset('nuevoDia') }}"><i class="fa fa-times-circle fa-fw"></i> Dias</a>

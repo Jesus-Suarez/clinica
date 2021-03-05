@@ -72,8 +72,17 @@ Route::get('pacientes/editar', [pacienteController::class, 'editar'])->name('pac
 //Route::delete('pacientes/eliminar', [pacienteController::class, 'eliminar'])->name('paciente.eliminar');
 
 /* Horario */
-Route::get('nuevoHorario', [horarioController::class, 'nuevoHorario'])->name('nuevoHorario');
+Route::get('Horarios', [horarioController::class, 'Horarios'])->name('Horarios');
+Route::get('nuevoHorario', [horarioController::class, 'nuevoHorario']);
 Route::POST('guardaHorario', [horarioController::class, 'guardaHorario'])->name('guardaHorario');
+Route::get('modificaHorario/{id_horario}', [horarioController::class, 'modificaHorario'])->name('modificaHorario');
+Route::POST('updateHorario', [horarioController::class, 'updateHorario'])->name('updateHorario');
+Route::get('HorariosElim', [horarioController::class, 'HorariosElim'])->name('HorariosElim');
+Route::get('desactivarHorario/{id_horario}', [horarioController::class, 'desactivarHorario'])->name('desactivarHorario');
+Route::get('activarHorario/{id_horario}', [horarioController::class, 'activarHorario'])->name('activarHorario');
+Route::get('eliminarHorario/{id_horario}', [horarioController::class, 'eliminarHorario'])->name('eliminarHorario');
+
+
 
 /* Estudio */
 Route::get('nuevoEstudio', [estudioController::class, 'nuevoEstudio']);
@@ -84,8 +93,15 @@ Route::get('nuevoMedicamento', [medicamentoController::class, 'nuevoMedicamento'
 Route::POST('guardaMedicamento', [medicamentoController::class, 'guardaMedicamento'])->name('guardaMedicamento');
 
 /* Tratamiento */
+Route::get('Tratamientos', [tratamientoController::class, 'Tratamientos'])->name('Tratamientos');
 Route::get('nuevoTratamiento', [tratamientoController::class, 'nuevoTratamiento']);
 Route::POST('guardaTratamiento', [tratamientoController::class, 'guardaTratamiento'])->name('guardaTratamiento');
+Route::get('modificaTratamiento/{id_tratamiento}', [tratamientoController::class, 'modificaTratamiento'])->name('modificaTratamiento');
+Route::POST('updateTratamiento', [tratamientoController::class, 'updateTratamiento'])->name('updateTratamiento');
+Route::get('TratamientosElim', [tratamientoController::class, 'TratamientosElim'])->name('TratamientosElim');
+Route::get('desactivarTratamiento/{id_tratamiento}', [tratamientoController::class, 'desactivarTratamiento'])->name('desactivarTratamiento');
+Route::get('activarTratamiento/{id_tratamiento}', [tratamientoController::class, 'activarTratamiento'])->name('activarTratamiento');
+Route::get('eliminarTratamiento/{id_tratamiento}', [tratamientoController::class, 'eliminarTratamiento'])->name('eliminarTratamiento');
 
 /* Dia */
 Route::get('nuevoDia', [diaController::class, 'nuevoDia']);

@@ -6,15 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class horario extends Model
+class tratamientos extends Model
 {
     use HasFactory;
     use SoftDeletes;
-
-    protected $primaryKey = 'id_horario';
+    protected $primaryKey = 'id_tratamiento';
     protected $fillable = [
-        'hora_inicio',
-        'hora_fin',
+        'id_tratamiento',
+        'descripcion_trat',
     ];
     protected $dates = ['deleted_at'];
 }
