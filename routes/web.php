@@ -68,8 +68,17 @@ Route::get('nuevoPaciente', [pacienteController::class, 'nuevoPaciente']);
 Route::POST('guardaPaciente', [pacienteController::class, 'guardaPaciente'])->name('guardaPaciente');
 
 /* Horario */
+Route::get('Horarios', [horarioController::class, 'Horarios'])->name('Horarios');
 Route::get('nuevoHorario', [horarioController::class, 'nuevoHorario']);
 Route::POST('guardaHorario', [horarioController::class, 'guardaHorario'])->name('guardaHorario');
+Route::get('modificaHorario/{id_horario}', [horarioController::class, 'modificaHorario'])->name('modificaHorario');
+Route::POST('updateHorario', [horarioController::class, 'updateHorario'])->name('updateHorario');
+Route::get('HorariosElim', [horarioController::class, 'HorariosElim'])->name('HorariosElim');
+Route::get('desactivarHorario/{id_horario}', [horarioController::class, 'desactivarHorario'])->name('desactivarHorario');
+Route::get('activarHorario/{id_horario}', [horarioController::class, 'activarHorario'])->name('activarHorario');
+Route::get('eliminarHorario/{id_horario}', [horarioController::class, 'eliminarHorario'])->name('eliminarHorario');
+
+
 
 /* Estudio */
 Route::get('nuevoEstudio', [estudioController::class, 'nuevoEstudio']);
