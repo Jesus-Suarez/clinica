@@ -142,7 +142,7 @@
                             <a href="{{ asset('Especialidades') }}"><i class="fa fa-tag fa-fw"></i> Especialidades</a>
                         </li>
                         <li>
-                            <a href="{{ asset('nuevoPaciente') }}"><i class="fa fa-user-plus fa-fw"></i> Pacientes</a>
+                            <a href="{{ route('paciente.index') }}"><i class="fa fa-user-plus fa-fw"></i> Pacientes</a>
                         </li>
                         <li>
                             <a href="{{ asset('nuevaCita') }}"><i class="fa fa-check fa-fw"></i> Citas</a>

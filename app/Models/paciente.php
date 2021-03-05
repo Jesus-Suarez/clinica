@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class paciente extends Model
+class Paciente extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -28,6 +28,4 @@ class paciente extends Model
         'calle',
         'numero',
     ];
-    protected $dates = ['deleted_at'];
 }
- 

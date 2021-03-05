@@ -64,11 +64,15 @@ Route::get('eliminarEspecialidad/{especialidad_id}', [especialidadController::cl
 
 
 /* Paciente */
-Route::get('nuevoPaciente', [pacienteController::class, 'nuevoPaciente']);
-Route::POST('guardaPaciente', [pacienteController::class, 'guardaPaciente'])->name('guardaPaciente');
+Route::get('pacientes', [pacienteController::class, 'index'])->name('paciente.index');
+Route::get('pacientes/crear', [pacienteController::class, 'crear'])->name('paciente.crear');
+Route::post('pacientes/almacenar', [pacienteController::class, 'almacenar'])->name('paciente.almacenar');
+Route::get('pacientes/editar', [pacienteController::class, 'editar'])->name('paciente.editar');
+//Route::put('pacientes/actualizar', [pacienteController::class, 'actualizar'])->name('paciente.actualizar');
+//Route::delete('pacientes/eliminar', [pacienteController::class, 'eliminar'])->name('paciente.eliminar');
 
 /* Horario */
-Route::get('nuevoHorario', [horarioController::class, 'nuevoHorario']);
+Route::get('nuevoHorario', [horarioController::class, 'nuevoHorario'])->name('nuevoHorario');
 Route::POST('guardaHorario', [horarioController::class, 'guardaHorario'])->name('guardaHorario');
 
 /* Estudio */

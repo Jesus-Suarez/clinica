@@ -2,31 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Paciente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Session;
 
 class pacienteController extends Controller
 {
-    public function nuevoPaciente()
+    public function index()
     {
-        return view('Admin.Pacientes.nuevoPaciente');
+        return view('Admin.Pacientes.index', [
+            'pacientes' => Paciente::select()
+                ->orderBy('created_at', 'desc')->get()
+        ]);
     }
-    public function guardaPaciente(Request $request)
-    {
-        $nombre_pac = $request->nombre_pac;
-        $ap_pat_pac = $request->ap_pat_pac;
-        $ap_mat_pac = $request->ap_mat_pac;
-        $sexo_pac = $request->sexo_pac;
-        $fecha_nac = $request->fecha_nac;
-        $telefono_pac = $request->telefono_pac;
-        $estado = $request->estado;
-        $municipio = $request->municipio;
-        $cp = $request->cp;
-        $calle = $request->calle;
-        $numero = $request->numero;
-        $email_pac = $request->email_pac;
-        $pass_pac = $request->pass_pac;
-        $foto_pac = $request->foto_pac;
 
+    public function crear()
+    {
+        return view('Admin.Pacientes.crear');
+    }
+
+    public function almacenar(Request $request)
+    {
         $this->validate($request, [
             'nombre_pac' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'ap_pat_pac' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
@@ -39,15 +36,21 @@ class pacienteController extends Controller
             'cp' => 'required|regex:/^[0-9]{5}$/',
             'calle' => 'required|regex:/^[0-9,a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'numero' => 'required|regex:/^[0-9,a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
-            'email_pac' => 'required|email',
+            'email_pac' => 'required|email|unique:pacientes',
             'pass_pac' => 'required|regex:/^[A-Z,a-z,0-9,á,é,í,ó,ú,ñ]*$/',
-            'foto_pac' => 'required|mimes:jpeg,png,jpg,gif'
-
-
+            'foto_pac' => 'mimes:jpeg,png,jpg,gif'
         ]);
 
+        Paciente::create($request->all());
 
-        echo ("Datos correctos");
+        Session::flash('message', 'El paciente ' . $request->nombre_pac . ' ' . $request->ap_pat_pac . ' ha sido creado exitosamente!');
+        return redirect()->route('paciente.index');
+    }
+
+    public function editar(paciente $paciente)
+    {
+        return view('Admin.Pacientes.editar', [
+            'paciente' => $paciente
+        ]);
     }
 }
- 

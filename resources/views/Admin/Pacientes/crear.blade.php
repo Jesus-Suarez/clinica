@@ -19,7 +19,7 @@
 
          </div>
          <div class="panel-body bg-info">
-             <form role="form" action="{{route('guardaPaciente')}}" method="POST" enctype="multipart/form-data">
+             <form role="form" action="{{route('paciente.crear')}}" method="POST" enctype="multipart/form-data">
                  {{csrf_field()}}
                  <div class="row">
                      <div class="form-group col-sm-6">
@@ -49,7 +49,7 @@
                          <label>Sexo</label>
                          <div class="radio">
                              <label>
-                                 <input type="radio" name="sexo_pac" value="H" {{ (old('sexo_pac') == "H") ? "checked" : "" }}>Masculino
+                                 <input type="radio" name="sexo_pac" value="H" {{ (old('sexo_pac') == "H") ? "checked" : "" }} checked>Masculino
                              </label>
                          </div>
                          <div class="radio">
