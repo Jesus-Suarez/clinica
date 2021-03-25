@@ -17,7 +17,6 @@ class CreateEspecialidadesTable extends Migration
             $table->bigIncrements('especialidad_id');
 
             $table->string('nombre_esp', 30);
-            
 
             $table->softDeletes();
             $table->timestamps();

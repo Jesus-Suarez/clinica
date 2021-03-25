@@ -1,9 +1,12 @@
 @extends('Admin.templeteAdmin')
+@section('titulo') Nuevo Doctor @endsection
+
 @section('contenido_admin')
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Agregar nuevo médico</h1>
+        <br><br>
+        <h1 class="page-header dropdown-toggle">Agregar nuevo médico</h1><br>
     </div>
     <!-- /.col-lg-12 -->
 </div>
@@ -13,18 +16,10 @@
     <!-- Default box -->
     <div class="panel panel-primary">
         <div class="panel-heading bg-secondary">
-            <div class="row">
-                <div class="col-sm-10"></div>
-                <div class="col-sm-2">
-                    <button class="btn btn-sm btn-primary" type="submit">
-                        Restaurar registros
-                    </button>
-                </div>
-            </div>
 
         </div>
-        <div class="panel-body">
-            <form role="form" action="{{route('guardaDoctor')}}" method="POST">
+        <div class="panel-body bg-info">
+            <form role="form" action="{{route('guardaDoctor')}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="row">
                     <div class="form-group col-sm-6">
@@ -54,12 +49,12 @@
                         <label>Sexo</label>
                         <div class="radio">
                             <label>
-                                <input type="radio" name="sexo_doc" value="H">Masculino
+                                <input type="radio" name="sexo_doc" value="M" {{ (old('sexo_doc') == "H") ? "checked" : "" }} checked>Masculino
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" name="sexo_doc" value="M">Femenino
+                                <input type="radio" name="sexo_doc" value="F" {{ (old('sexo_doc') == "M") ? "checked" : "" }}>Femenino
                             </label>
                         </div>
                         @if ($errors->first('sexo_doc'))
@@ -88,18 +83,23 @@
                 <div class="row">
                     <div class="form-group col-sm-6">
                         <label>Especialidad</label>
-                        
-                        <select class="form-control" name="especialidad_id"required>
-                            <option value="0">--- Elija una especialidad ---</option>
-                            <option>Dermatologo</option>
-                            <option>Cirujano</option>
-                            <option>Ginecologo</option>
-                            <option>Cardiologo</option>
+
+                        <select class="form-control" name="especialidad_id"">
+                            <option selected="">--- Elija una especialidad ---</option>
+                            @foreach($especialidad as $esp)
+                            <option value=" {{$esp->especialidad_id}}">{{$esp->nombre_esp}} </option>
+                            @endforeach
+                            <!-- /.col-lg-12 
+                            <option value=" 1" {{ old('especialidad_id') == 1 ? 'selected' : '' }}>Dermatologo</option>
+                            <option value="2" {{ old('especialidad_id') == 2 ? 'selected' : '' }}>Cirujano</option>
+                            <option value="3" {{ old('especialidad_id') == 3 ? 'selected' : '' }}>Ginecologo</option>
+                            <option value="4" {{ old('especialidad_id') == 4 ? 'selected' : '' }}>Cardiologo</option>
+                            -->
                         </select>
                         @if ($errors->first('especialidad_id'))
                         <p class="text-danger">{{$errors->first('especialidad_id')}}</p>
                         @endif
-                        
+
                     </div>
                     <div class="form-group col-sm-6">
                         <label>Correo electronico</label>
@@ -119,7 +119,10 @@
                     </div>
                     <div class="form-group col-sm-6">
                         <label>Foto</label>
-                        <input type="file" class="form-control" placeholder="Agregar una foto">
+                        <input type="file" class="form-control" name="foto_doc" accept="image/png, .jpeg, .jpg, image/gif">
+                        @if ($errors->first('foto_doc'))
+                        <p class="text-danger">{{$errors->first('foto_doc')}}</p>
+                        @endif
                     </div>
                 </div>
 

@@ -8,7 +8,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Startmin - Bootstrap Admin Theme</title>
+    <title>@yield('titulo')</title>
+    <!-- icono -->
+    <link href="{{ asset('img/logo.jpg') }}" rel="icon">
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/admin/bootstrap.min.css') }}" rel="stylesheet">
@@ -37,7 +39,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">Startmin</a>
+                <a class="navbar-brand" href="index.html">DigitalClinic</a>
             </div>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -48,7 +50,7 @@
             </button>
 
             <ul class="nav navbar-nav navbar-left navbar-top-links">
-                <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
+                <li><a href="{{ asset('index') }}"><i class="fa fa-home fa-fw"></i> Sitio Web</a></li>
             </ul>
 
             <ul class="nav navbar-right navbar-top-links">
@@ -108,15 +110,15 @@
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
+                        <i class="fa fa-user fa-fw"></i> Jesus Suarez <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Perfil de Usuario</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ajustes</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión</a>
                         </li>
                     </ul>
                 </li>
@@ -127,103 +129,50 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <!-- /input-group -->
+                            <img src="{{ asset('img/logo.jpg') }}" height="30" width="30" class=" rounded" alt="">
+
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="{{ asset('') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="flot.html">Flot Charts</a>
-                                </li>
-                                <li>
-                                    <a href="morris.html">Morris.js Charts</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="{{ asset('Doctores') }}"><i class="fa fa-users fa-fw"></i> Doctores</a>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            <a href="{{ asset('Especialidades') }}"><i class="fa fa-tag fa-fw"></i> Especialidades</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                            <a href="{{ route('paciente.index') }}"><i class="fa fa-user-plus fa-fw"></i> Pacientes</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="panels-wells.html">Panels and Wells</a>
-                                </li>
-                                <li>
-                                    <a href="buttons.html">Buttons</a>
-                                </li>
-                                <li>
-                                    <a href="notifications.html">Notifications</a>
-                                </li>
-                                <li>
-                                    <a href="typography.html">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="icons.html"> Icons</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grid</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="{{ asset('nuevaCita') }}"><i class="fa fa-check fa-fw"></i> Citas</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="{{ asset('nuevaConsulta') }}"><i class="fa fa-book fa-fw"></i> Consultas</a>
                         </li>
-                        <li class="active">
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a class="active" href="blank.html">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">Login Page</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                        <li>
+                            <a href="{{ asset('Tratamientos') }}"><i class="fa fa-signal fa-fw"></i> Tratamientos</a>
                         </li>
+                        <li>
+                            <a href="{{ asset('Horarios') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
+                        </li>
+                        <li>
+                            <a href="{{ asset('nuevoDia') }}"><i class="fa fa-times-circle fa-fw"></i> Dias</a>
+                        </li>
+                        <li>
+                            <a href="{{ asset('nuevoEstudio') }}"><i class="fa fa-list fa-fw"></i> Estudios</a>
+                        </li>
+                        <li>
+                            <a href="{{ asset('nuevaConsulta_trat') }}"><i class="fa fa-check-square-o fa-fw"></i> Consultas Tratamientos</a>
+                        </li>
+                        <li>
+                            <a href="{{ asset('nuevoMedicamento') }}"><i class="fa fa-arrows fa-fw"></i> Medicamentos</a>
+                        </li>
+                        <li>
+                            <a href="{{ asset('nuevoConsultorio') }}"><i class="fa fa-eye fa-fw"></i> Consultorios</a>
+                        </li>
+
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

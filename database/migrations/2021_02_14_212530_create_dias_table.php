@@ -17,6 +17,7 @@ class CreateDiasTable extends Migration
             $table->bigIncrements('id_dia');
 
 
+            $table->string('nombre_dia', 10);
             $table->unsignedBigInteger('id_doctor');
             $table->unsignedBigInteger('id_horario');
 
