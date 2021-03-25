@@ -118,7 +118,7 @@ class doctorController extends Controller
         $doc->email_doc = $request->email_doc;
         $doc->pass = $request->pass;
         $doc->save();
-        Session::flash('message', 'El doctor fue modificado correctamente!');
+        Session::flash('message', 'El doctor fue modificado correctamente!!!');
         return redirect()->route('Doctores');
     }
     public function desactivarDoctor($id_doctor)

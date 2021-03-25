@@ -67,9 +67,13 @@ Route::get('eliminarEspecialidad/{especialidad_id}', [especialidadController::cl
 Route::get('pacientes', [pacienteController::class, 'index'])->name('paciente.index');
 Route::get('pacientes/crear', [pacienteController::class, 'crear'])->name('paciente.crear');
 Route::post('pacientes/almacenar', [pacienteController::class, 'almacenar'])->name('paciente.almacenar');
-Route::get('pacientes/editar', [pacienteController::class, 'editar'])->name('paciente.editar');
-//Route::put('pacientes/actualizar', [pacienteController::class, 'actualizar'])->name('paciente.actualizar');
-//Route::delete('pacientes/eliminar', [pacienteController::class, 'eliminar'])->name('paciente.eliminar');
+Route::get('pacientes/{paciente}/editar', [pacienteController::class, 'editar'])->name('paciente.editar');
+Route::put('pacientes/{id}/actualizar', [pacienteController::class, 'actualizar'])->name('paciente.actualizar');
+Route::delete('pacientes/{id}/desactivar', [pacienteController::class, 'desactivar'])->name('paciente.desactivar');
+Route::get('pacientes/{id}/activar', [pacienteController::class, 'activar'])->name('paciente.activar');
+Route::get('pacientes/desactivados', [pacienteController::class, 'desactivados'])->name('paciente.desactivados');
+Route::delete('paciente/{id}/eliminar', [pacienteController::class, 'eliminar'])->name('paciente.eliminar');
+
 
 /* Horario */
 Route::get('Horarios', [horarioController::class, 'Horarios'])->name('Horarios');

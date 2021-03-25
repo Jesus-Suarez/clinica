@@ -49,12 +49,12 @@
                         <label>Sexo</label>
                         <div class="radio">
                             <label>
-                                <input type="radio" name="sexo_doc" value="H" {{ (old('sexo_doc') == "H") ? "checked" : "" }}>Masculino
+                                <input type="radio" name="sexo_doc" value="M" {{ (old('sexo_doc') == "H") ? "checked" : "" }} checked>Masculino
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" name="sexo_doc" value="M" {{ (old('sexo_doc') == "M") ? "checked" : "" }}>Femenino
+                                <input type="radio" name="sexo_doc" value="F" {{ (old('sexo_doc') == "M") ? "checked" : "" }}>Femenino
                             </label>
                         </div>
                         @if ($errors->first('sexo_doc'))
@@ -87,7 +87,7 @@
                         <select class="form-control" name="especialidad_id"">
                             <option selected="">--- Elija una especialidad ---</option>
                             @foreach($especialidad as $esp)
-                            <option value="{{$esp->especialidad_id}}" >{{$esp->nombre_esp}} </option>
+                            <option value=" {{$esp->especialidad_id}}">{{$esp->nombre_esp}} </option>
                             @endforeach
                             <!-- /.col-lg-12 
                             <option value=" 1" {{ old('especialidad_id') == 1 ? 'selected' : '' }}>Dermatologo</option>

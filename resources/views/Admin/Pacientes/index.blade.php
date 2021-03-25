@@ -16,7 +16,7 @@
                 <i class="fa fa-list fa-file"></i>
             </a><span class="text-primary"></span>
 
-            <a href="{{ route('paciente.crear') }}" class="btn btn-warning pull-right">
+            <a href="{{ route('paciente.desactivados') }}" class="btn btn-warning pull-right">
                 <i class="fa fa-list fa-rotate-left"></i>
                 <span class="text">Restaurar registros</span>
             </a>
@@ -58,18 +58,20 @@
                             <td>{{$paciente->id_paciente}}</td>
                             <td>Aqui va la foto</td>
                             <td>{{$paciente->nombre_pac}} {{$paciente->ap_pat_pac}} {{$paciente->ap_mat_pac}}</td>
-                            <td>{{\Carbon\Carbon::parse($paciente->fecha_nac)->age}}</td>
+                            <td>{{\Carbon\Carbon::parse($paciente->fecha_nac)->age}} años</td>
                             <td>{{$paciente-> email_pac}}</td>
                             <td>{{$paciente->telefono_pac}}</td>
                             <td>
-                                <a class="btn btn-primary">
+                                <a class="btn btn-primary" href="{{ route('paciente.editar', $paciente) }}">
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </td>
                             <td>
-                                <a class="btn btn-danger">
-                                    <i class="fa fa-trash"></i>
-                                </a>
+                                <form method="POST" action="{{ route('paciente.desactivar', $paciente->id_paciente) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class=" btn btn-danger"><i class="fa fa-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

@@ -57,14 +57,14 @@
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" name="sexo_doc" value="F" >Femenino
+                                <input type="radio" name="sexo_doc" value="F">Femenino
                             </label>
                         </div>
                         @endif
                         @if($consulta->sexo_doc == 'F')
                         <div class="radio">
                             <label>
-                                <input type="radio" name="sexo_doc" value="M" >Masculino
+                                <input type="radio" name="sexo_doc" value="M">Masculino
                             </label>
                         </div>
                         <div class="radio">

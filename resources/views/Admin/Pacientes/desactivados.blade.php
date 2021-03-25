@@ -1,5 +1,5 @@
 @extends('Admin.templeteAdmin')
-@section('titulo') Doctores @endsection
+@section('titulo') Pacientes desactivados @endsection
 
 @section('contenido_admin')
 
@@ -8,7 +8,7 @@
 <div class="panel shadow mb-4">
     <div class="panel-header py-3">
         <center>
-            <h2 class="m-0 font-weight-bold text-primary">Lista de Doctores</h2><br>
+            <h2 class="m-0 font-weight-bold text-primary">Lista de Pacientes Desactivados</h2><br>
         </center>
         <nav class="navbar navbar-light bg-light">
 
@@ -16,9 +16,9 @@
                 <i class="fa fa-list fa-file"></i>
             </a><span class="text-primary"></span>
 
-            <a href="DoctoresElim" class="btn btn-warning pull-right">
+            <a href="{{ route('paciente.index') }}" class="btn btn-primary pull-right">
                 <i class="fa fa-list fa-rotate-left"></i>
-                <span class="text">Restaurar registros</span>
+                <span class="text">Pacientes activos</span>
             </a>
         </nav>
     </div>
@@ -43,46 +43,43 @@
                 <table class="table table-responsive table-hover table-striped" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                     <thead>
                         <tr role="row">
+                            <th>Clave</th>
                             <th>Foto</th>
                             <th>Nombre</th>
                             <th>Edad</th>
-                            <th>Sexo</th>
-                            <th>Telefono</th>
-                            <th>Especialidad</th>
                             <th>Correo</th>
+                            <th>Telefono</th>
                             <th colspan="2">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($consulta as $doc)
+                        @forelse($pacientes as $paciente)
                         <tr>
-                            <!-- <td><img src="{{ asset('archivos/'.$doc->foto_doc) }}}" height=50 width=50></td>  -->
-                            <td>{{$doc->id_doctor}}</td>
-                            <td>{{$doc->nombre_doc}} {{$doc->ap_pat_doc}} {{$doc->ap_mat_doc}}</td>
-                            <td>{{\Carbon\Carbon::parse($doc->fecha_nac)->age}} años</td>
+                            <td>{{$paciente->id_paciente}}</td>
+                            <td>Aqui va la foto</td>
+                            <td>{{$paciente->nombre_pac}} {{$paciente->ap_pat_pac}} {{$paciente->ap_mat_pac}}</td>
+                            <td>{{\Carbon\Carbon::parse($paciente->fecha_nac)->age}} años</td>
+                            <td>{{$paciente-> email_pac}}</td>
+                            <td>{{$paciente->telefono_pac}}</td>
                             <td>
-                                @if($doc->sexo_doc == "H")
-                                Masculino
-                                @else
-                                Femenino
-                                @endif
-                            </td>
-                            <td>{{$doc->telefono_doc}}</td>
-                            <td>{{$doc->espec}}</td>
-                            <td>{{$doc->email_doc}}</td>
-                            <td>
-                                <a class="btn btn-primary " href="{{route('modificaDoctor',['id_doctor'=>$doc->id_doctor])}}">
-                                    <i class="fa fa-edit"></i>
-                                </a>
+                                <a href="{{ route('paciente.activar', $paciente->id_paciente) }}" class="btn btn-warning"><i class="fa fa-retweet"></i></a>
                             </td>
                             <td>
-                                <a class="btn btn-danger " href="{{route('desactivarDoctor',['id_doctor'=>$doc->id_doctor])}}">
-                                    <i class="fa fa-trash"></i>
-                                </a>
+
+                                <form method="POST" action="{{ route('paciente.eliminar', $paciente->id_paciente) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class=" btn btn-danger"><i class="fa fa-trash"></i></button>
+                                </form>
+
                             </td>
                         </tr>
-                        @endforeach
-                        </form>
+                        @empty
+
+                        <p>No hay pacientes desactivados para mostrar</p>
+
+                        @endforelse
+
                     </tbody>
                 </table>
             </div>

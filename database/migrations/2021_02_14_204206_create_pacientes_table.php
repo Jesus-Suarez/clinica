@@ -20,7 +20,7 @@ class CreatePacientesTable extends Migration
             $table->string('ap_pat_pac', 30);
             $table->string('ap_mat_pac', 30);
             $table->date('fecha_nac');
-            $table->enum('sexo_pac', ['H', 'M']);
+            $table->enum('sexo_pac', ['M', 'F']);
             $table->string('telefono_pac', 30);
             $table->string('email_pac', 50)->unique();
             $table->string('pass_pac');
