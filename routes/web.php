@@ -86,13 +86,13 @@ Route::get('desactivarHorario/{id_horario}', [horarioController::class, 'desacti
 Route::get('activarHorario/{id_horario}', [horarioController::class, 'activarHorario'])->name('activarHorario');
 Route::get('eliminarHorario/{id_horario}', [horarioController::class, 'eliminarHorario'])->name('eliminarHorario');
 
+Route::get('estudios/index', [estudioController::class, 'index'])->name('estudio.index');
+Route::get('estudios/crear', [estudioController::class, 'crear'])->name('estudio.crear');
+Route::POST('estudios/almacenar', [estudioController::class, 'almacenar'])->name('estudio.almacenar');
+Route::put('estudios/{id}/editar', [estudioController::class, 'editar'])->name('estudio.editar');
+Route::delete('estudios/{id}/desactivar', [pacienteController::class, 'desactivar'])->name('estudio.desactivar');
+Route::get('estudios/desactivados', [estudioController::class, 'desactivados'])->name('estudio.desactivados');
 
-
-/* Estudio */
-Route::get('nuevoEstudio', [estudioController::class, 'nuevoEstudio']);
-Route::POST('guardaEstudio', [estudioController::class, 'guardaEstudio'])->name('guardaEstudio');
-
-/* Medicamento */
 Route::get('nuevoMedicamento', [medicamentoController::class, 'nuevoMedicamento']);
 Route::POST('guardaMedicamento', [medicamentoController::class, 'guardaMedicamento'])->name('guardaMedicamento');
 

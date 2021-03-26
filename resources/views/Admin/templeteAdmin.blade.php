@@ -160,7 +160,7 @@
                             <a href="{{ asset('nuevoDia') }}"><i class="fa fa-times-circle fa-fw"></i> Dias</a>
                         </li>
                         <li>
-                            <a href="{{ asset('nuevoEstudio') }}"><i class="fa fa-list fa-fw"></i> Estudios</a>
+                            <a href="{{ route('estudio.index') }}"><i class="fa fa-list fa-fw"></i> Estudios</a>
                         </li>
                         <li>
                             <a href="{{ asset('nuevaConsulta_trat') }}"><i class="fa fa-check-square-o fa-fw"></i> Consultas Tratamientos</a>

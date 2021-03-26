@@ -19,7 +19,7 @@
 
          </div>
          <div class="panel-body bg-info">
-             <form role="form" action="{{route('paciente.crear')}}" method="POST" enctype="multipart/form-data">
+             <form action="{{route('paciente.crear')}}" method="POST" enctype="multipart/form-data">
                  {{csrf_field()}}
                  <div class="row">
                      <div class="form-group col-sm-6">
