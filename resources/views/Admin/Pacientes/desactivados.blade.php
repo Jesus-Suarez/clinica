@@ -12,7 +12,7 @@
         </center>
         <nav class="navbar navbar-light bg-light">
 
-            <a href="nuevoDoctor" class="btn btn-primary btn-circle btn-lg">
+            <a href="{{ route('paciente.crear') }}" class="btn btn-primary btn-circle btn-lg">
                 <i class="fa fa-list fa-file"></i>
             </a><span class="text-primary"></span>
 
