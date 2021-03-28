@@ -457,7 +457,7 @@
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-            <div class="pic"><img src="{{ asset('img/Desarrolladores/jesus.png') }}" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{{ asset('img/Desarrolladores/jesus.png') }}" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Jesús Suarez Álvarez</h4>
                 <span>Desarrollador Web.</span>
@@ -474,12 +474,135 @@
       </div>
     </section><!-- Fin de seccion de integrantes -->
 
-    <section id="logo">
+    <!-- ======= Seccion de captacion de talento ======= -->
+    <section id="captacion" class="services">
       <div class="container">
+        <h2>Captacion de Talento</h2>
 
         <div class="section-title">
-          <h2>Logo DigitalClinic</h2>
-          <br><br><img src="{{ asset('img/logo.jpg') }}" height="400px" width="400px" class="img-fluid rounded" alt="">
+          <embed src="{{ asset('archivos/Captacion.pdf') }}" type="application/pdf" width="100%" height="600px" />
+
+        </div>
+
+
+      </div>
+    </section><!-- Fin de captacion  -->
+
+    <section id="codigo_etica">
+      <div class="container">
+        <div class="section-title">
+          <h2>Código de Ética</h2>
+        </div>
+        <p>El código de etica que manejamos para nuestros trabajadores consta de los siguientes 8 puntos: </p>
+        <br><br>
+        <li>Todos los trabajadores deberan de ser justos con sus compañeros de trabajo además de altruistas</li>
+        <br>
+        <li>En cuanto se realicen cambios dentro de la aplicación web actuar rápidamente para brindarle una buena experiencia al cliente </li>
+        <br>
+        <li>Esta prohibido que los trabajadores tengan conflictos de interés dentro de la empresa</li>
+        <br>
+        <li>Los estandares de trabajo son altos y transparentes dentro de la empresa</li>
+        <br>
+        <li>Se debe de tener un interes social para todos los empleados de la empresa y trabajar de manera coherente</li>
+        <br>
+        <li>No se permite la discriminación dentro de la empresa ni ningún tipo de rechazo </li>
+        <br>
+        <li>Existe confidencialidad absoluta con el cliente</li>
+
+      </div>
+    </section>
+
+    <section id="plan">
+      <div class="container">
+        <div class="section-title">
+          <h2>Plan de Inversión</h2>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 align-items-stretch">
+            <h2>Introducción</h2>
+            <p>Desde siempre los servicios médicos son requeridos por la población y de muy alta demanda, debido a que es una necesidad atender la salud de las personas y ahora con el paso de los años se requiere más atención y nuevas formas de brindarla. A partir del año 2019 se empezaron a generar nuevas formas de brindar esta atención. Nosotros DigitalClinic decidimos ofrecer servicios médicos ya que es un área muy demandada y fundamental dentro de la sociedad.</p>
+          </div><br><br>
+          <div class="col-sm-6">
+            <!--
+            <h2>Antecedentes</h2>
+            <p>El código de etica que manejamos para nuestros trabajadores consta de los siguientes 8 puntos: </p>
+          </div><br><br> -->
+            <div class="col-sm-6">
+              <h2>Objetivo</h2>
+              <p>Nuestro objetivo es ofrecer servicios médicos de manera digital a nuestros pacientes para asi facilitar el servicio.</p>
+            </div><br><br>
+            <div class="col-sm-6">
+              <h2>Estudio de mercado</h2>
+              <p>Un estudio de mercado nos mostro que aproximadamente el 65% de la población en el área de Lerma estaria dispuesto a probar los servicios digitalmente para no exponerse, siempre y cuando no sea muy caro. </p>
+            </div><br><br>
+
+            <!-- 
+          <div class="col-sm-6">
+            <h2>Estudio financiero</h2>
+            <p>El código de etica que manejamos para nuestros trabajadores consta de los siguientes 8 puntos: </p>
+          </div><br><br>-->
+            <div class="col-sm-6">
+              <h2>Estudio financiero</h2>
+              <p>Debido al estudio de mercado que hemos realizado el costo que se propone para este proyecto es de $200000 de pesos mexicanos para el cual se repartirá en la contratación de 3 desarrolladores por la cantidad de $50000 para cada uno de ellos en un tiempo de desarrollo de 3 meses y los otros $50000 serán para invertirse en publicidad en una campaña de 2 meses para promocionar la página. </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="reflexion">
+      <div class="container">
+        <div class="section-title">
+          <h2>Reflexión del Proyecto de Inversión</h2>
+        </div>
+        <p>¿Por qué deseamos iniciar este negocio? </p>
+        <li>Debido a que el área de salud siempre ha sido requerido a través del tiempo y por consecuencia se puede optimizar la manera en que se pueden atender a los pacientes haciendo digital el proceso.</li>
+        <br>
+        <p>¿Cubre una necesidad del mercado? </p>
+        <li>Si por que la salud es indispensable para todas las personas</li>
+        <br>
+        <p>¿Cómo identificamos esta necesidad?</p>
+        <li>Se debe a que en estos meses se ha vuelto concurrente ir a centros médicos debido a la pandemia y al no tener un control eficiente del manejo de pacientes al edificio se saturan.</li>
+        <br>
+        <p>¿Cuáles son los costos de los elementos de inversión?</p>
+        <li>$200000 de pesos mexicanos para el cual se repartirá en la contratación de 3 desarrolladores por la cantidad de $50000 para cada uno de ellos en un tiempo de desarrollo de 3 meses y los otros $50000 serán para invertirse en publicidad en una campaña de 2 meses para promocionar la página.</li>
+        <br>
+        <p>¿Cuáles son las ventas y costos presupuestados? </p>
+        <li>Las ventas son las consultas médicas y los costos propuestos se basaran dependiendo de los medicamentos que se requieran para el paciente.</li>
+        <br>
+        <p>¿Cuál es su rentabilidad?</p>
+        <li>Tiene una rentabilidad muy buena por tratarse de que es una nececidad muy importante.</li>
+        <br>
+        <p>¿Cuál es la vida del proyecto?</p>
+        <li>Planificamos la idea, Diseñamos el producto minimo viable, Hacemos un plan de marketing para promocion de la app, Plan de recaudacion de inversion para el proyecto, Mantenimiento y mejora continua de nuestro producto.</li>
+        <br>
+        <p>¿Este proyecto es viable acorde a las condiciones económicas de nuestro país?</p>
+        <li>Sí, ya que al ser casi totalmente digital y para implementarlo o acceder a él solo es necesario equipo mínimo como una computadora o un smartphone.</li>
+        <br>
+        <p>¿Cómo se financiará?</p>
+        <li>Se financiara con la ayuda de anticipos de clientes, inversiones de terceros a cambio de una parte de la empresa.</li>
+        <br>
+        <p>¿Cuánto me cuesta este financiamiento? Ya sea con capital propio o con deuda?</p>
+
+        <li>El financiamiento es con deuda a los inversores y es un costo estimado de $200000 pesos mexicanos.</li>
+        <br>
+        <p>¿Qué implementaciones tecnológicas necesito?</p>
+        <li>Necesitaremos un plan de marketing para la promocion de nuestra aplicacion en este caso una herramienta digital sera facebook y demas redes sociales como instagram, twiter, youtube, ademas de servicios de hosting para alojar nuestra aplicación web.</li>
+
+
+      </div>
+    </section>
+
+    <section id="logo">
+      <div class="container">
+        <div class="section-title">
+          <div class="member-info">
+            <h2>Logo DigitalClinic</h2>
+            <br><br><img src="{{ asset('img/logo.jpg') }}" height="400px" width="400px" class="img-fluid rounded" alt="">
+          </div>
         </div>
       </div>
     </section>
