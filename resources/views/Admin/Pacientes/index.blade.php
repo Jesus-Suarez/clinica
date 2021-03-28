@@ -12,7 +12,7 @@
         </center>
         <nav class="navbar navbar-light bg-light">
 
-            <a href="nuevoDoctor" class="btn btn-primary btn-circle btn-lg">
+            <a href="{{ route('paciente.crear') }}" class="btn btn-primary btn-circle btn-lg" title="Crear nuevo paciente">
                 <i class="fa fa-list fa-file"></i>
             </a><span class="text-primary"></span>
 
@@ -62,12 +62,12 @@
                             <td>{{$paciente-> email_pac}}</td>
                             <td>{{$paciente->telefono_pac}}</td>
                             <td>
-                                <a class="btn btn-primary" href="{{ route('paciente.editar', $paciente) }}">
+                                <a class="btn btn-primary" href="{{ route('paciente.editar', $paciente) }}" title="Editar">
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </td>
                             <td>
-                                <form method="POST" action="{{ route('paciente.desactivar', $paciente->id_paciente) }}">
+                                <form method="POST" action="{{ route('paciente.desactivar', $paciente->id_paciente) }}" title="Eliminar">
                                     @csrf
                                     @method('DELETE')
                                     <button class=" btn btn-danger"><i class="fa fa-trash"></i></button>

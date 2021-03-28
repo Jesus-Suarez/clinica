@@ -43,6 +43,7 @@
                 <table class="table table-hover table-striped table-responsive" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                     <thead>
                         <tr role="row">
+                            <th>Clave del tratamiento</th>
                             <th>Descripcion del tratamieinto</th>
                             <th colspan="2">Acciones</th>
                         </tr>
@@ -50,14 +51,15 @@
                     <tbody>
                         @foreach($tratamiento as $trat)
                         <tr>
+                            <td>{{$trat->id_tratamiento}}</td>
                             <td>{{$trat->descripcion_trat}}</td>
                             <td>
-                                <a class="btn btn-primary " href="{{route('modificaTratamiento',['id_tratamiento'=>$trat->id_tratamiento])}}">
+                                <a class="btn btn-primary" href="{{route('modificaTratamiento',['id_tratamiento'=>$trat->id_tratamiento])}}" title="Editar">
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </td>
                             <td>
-                                <a class="btn btn-danger " href="{{route('desactivarTratamiento',['id_tratamiento'=>$trat->id_tratamiento])}}">
+                                <a class="btn btn-danger " href="{{route('desactivarTratamiento',['id_tratamiento'=>$trat->id_tratamiento])}}" title="Eliminar">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>

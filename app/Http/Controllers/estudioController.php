@@ -25,7 +25,7 @@ class estudioController extends Controller
     {
         $this->validate($request, [
             'nombre_est' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
-            'descripcion_est' => 'required|min:30|max:255|regex:/^[a-z,A-Z, ,á,é,í,ó,ú,ñ,.,]*$/'
+            'descripcion_est' => 'required|min:5|max:255|regex:/^[a-z,A-Z, ,á,é,í,ó,ú,ñ,.,]*$/'
         ]);
 
         Estudio::create($request->all());
@@ -34,10 +34,9 @@ class estudioController extends Controller
         return redirect()->route('estudio.index');
     }
 
-
     public function editar(estudio $estudio)
     {
-        return view('Admin.Pacientes.editar', [
+        return view('Admin.Estudios.editar', [
             'estudio' => $estudio
         ]);
     }
@@ -47,12 +46,12 @@ class estudioController extends Controller
 
         $this->validate($request, [
             'nombre_est' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
-            'descripcion_est' => 'required|min:30|max:255|regex:/^[a-z,A-Z, ,á,é,í,ó,ú,ñ,.,]*$/'
+            'descripcion_est' => 'required|min:5|max:255|regex:/^[a-z,A-Z, ,á,é,í,ó,ú,ñ,.,]*$/'
         ]);
 
         $estudio = Estudio::find($id);
         $estudio->nombre_est = $request->nombre_est;
-        $estudio->desactivados = $request->desactivados;
+        $estudio->descripcion_est = $request->descripcion_est;
         $estudio->save();
 
         Session::flash('message', 'El estudio ' . $request->nombre_est . ' ha sido modificado exitosamente!!');

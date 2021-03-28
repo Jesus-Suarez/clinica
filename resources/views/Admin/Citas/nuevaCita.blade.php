@@ -30,7 +30,7 @@
                         @endif
                     </div>
                     <div class="form-group col-sm-6">
-                        <label>Doctor</label>
+                        <label>Hora de la cita</label>
                         <input type="time" class="form-control" name="hora" value="{{old('hora')}}">
                         @if ($errors->first('hora'))
                         <p class="text-danger">{{$errors->first('hora')}}</p>

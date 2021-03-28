@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Paciente;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Session;
 
 class pacienteController extends Controller
@@ -13,7 +12,8 @@ class pacienteController extends Controller
     {
         return view('Admin.Pacientes.index', [
             'pacientes' => Paciente::select()
-                ->orderBy('created_at', 'desc')->get()
+                ->orderBy('created_at', 'desc')
+                ->get()
         ]);
     }
 

@@ -12,7 +12,7 @@
         </center>
         <nav class="navbar navbar-light bg-light">
 
-            <a href="{{ route('estudio.crear') }}" class="btn btn-primary btn-circle btn-lg">
+            <a href="{{ route('estudio.crear') }}" class="btn btn-primary btn-circle btn-lg" title="Crear nuevo estudio">
                 <i class="fa fa-list fa-file"></i>
             </a><span class="text-primary"></span>
 
@@ -52,15 +52,16 @@
                     <tbody>
                         @foreach($estudios as $estudio)
                         <tr>
+                            <td>{{$estudio->id_estudio}}</td>
                             <td>{{$estudio->nombre_est}}</td>
                             <td>{{$estudio->descripcion_est}}</td>
                             <td>
-                                <a class="btn btn-primary" href="{{ route('estudio.editar', $estudio) }}">
+                                <a class="btn btn-primary" href="{{ route('estudio.editar', $estudio) }}" title="Editar">
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </td>
                             <td>
-                                <form method="POST" action="{{ route('estudio.desactivar', $estudio->id_estudio) }}">
+                                <form method="POST" action="{{ route('estudio.desactivar', $estudio->id_estudio) }}" title="Eliminar">
                                     @csrf
                                     @method('DELETE')
                                     <button class=" btn btn-danger"><i class="fa fa-trash"></i></button>

@@ -23,7 +23,7 @@
                 {{csrf_field()}}
                 <div class="row">
                     <div class="form-group col-sm-6">
-                        <label>Precio de la consulta</label>
+                        <label>Costo de la consulta</label>
                         <input type="number" class="form-control" name="costo" value="{{old('costo')}}" placeholder="Precio de la consulta">
                         @if ($errors->first('costo'))
                         <p class="text-danger">{{$errors->first('costo')}}</p>

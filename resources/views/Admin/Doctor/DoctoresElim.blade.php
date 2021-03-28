@@ -11,7 +11,7 @@
             <h2 class="m-0 font-weight-bold text-primary">Lista de Doctores desactivados</h2><br>
         </center>
         <nav class="navbar navbar-light bg-light">
-            <a href="Doctores" class="btn btn-primary btn-circle btn-lg">
+            <a href="{{ route('Doctores') }}" class="btn btn-primary btn-circle btn-lg">
                 <i class="fa fa-list fa-rotate-left"></i>
             </a><span class="text-primary"></span>
         </nav>

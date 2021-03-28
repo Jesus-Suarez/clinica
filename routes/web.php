@@ -88,7 +88,7 @@ Route::get('eliminarHorario/{id_horario}', [horarioController::class, 'eliminarH
 Route::get('estudios/index', [estudioController::class, 'index'])->name('estudio.index');
 Route::get('estudios/crear', [estudioController::class, 'crear'])->name('estudio.crear');
 Route::POST('estudios/almacenar', [estudioController::class, 'almacenar'])->name('estudio.almacenar');
-Route::put('estudios/{id}/editar', [estudioController::class, 'editar'])->name('estudio.editar');
+Route::get('estudios/{estudio}/editar', [estudioController::class, 'editar'])->name('estudio.editar');
 Route::put('estudios/{id}/actualizar', [estudioController::class, 'actualizar'])->name('estudio.actualizar');
 Route::delete('estudios/{id}/desactivar', [estudioController::class, 'desactivar'])->name('estudio.desactivar');
 Route::get('estudios/{id}/activar', [estudioController::class, 'activar'])->name('estudio.activar');
@@ -109,9 +109,15 @@ Route::get('desactivarTratamiento/{id_tratamiento}', [tratamientoController::cla
 Route::get('activarTratamiento/{id_tratamiento}', [tratamientoController::class, 'activarTratamiento'])->name('activarTratamiento');
 Route::get('eliminarTratamiento/{id_tratamiento}', [tratamientoController::class, 'eliminarTratamiento'])->name('eliminarTratamiento');
 
-/* Dia */
-Route::get('nuevoDia', [diaController::class, 'nuevoDia']);
-Route::POST('guardaDia', [diaController::class, 'guardaDia'])->name('guardaDia');
+Route::get('dias/index', [diaController::class, 'index'])->name('dia.index');
+Route::get('dias/crear', [diaController::class, 'crear'])->name('dia.crear');
+Route::POST('dias/almacenar', [diaController::class, 'almacenar'])->name('dia.almacenar');
+Route::get('dias/{id_dia}/editar', [diaController::class, 'editar'])->name('dia.editar');
+Route::put('dias/{id}/actualizar', [diaController::class, 'actualizar'])->name('dia.actualizar');
+Route::delete('dias/{id}/desactivar', [diaController::class, 'desactivar'])->name('dia.desactivar');
+Route::get('dias/{id}/activar', [diaController::class, 'activar'])->name('dia.activar');
+Route::get('dias/desactivados', [diaController::class, 'desactivados'])->name('dia.desactivados');
+Route::delete('dias/{id}/eliminar', [diaController::class, 'eliminar'])->name('dia.eliminar');
 
 /* Consulta Tratamiento */
 Route::get('nuevaConsulta_trat', [consulta_tratController::class, 'nuevaConsulta_trat']);

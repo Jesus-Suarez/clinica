@@ -8,17 +8,13 @@
 <div class="panel shadow mb-4">
     <div class="panel-header py-3">
         <center>
-            <h2 class="m-0 font-weight-bold text-primary">Lista de estudios disponibles</h2><br>
+            <h2 class="m-0 font-weight-bold text-primary">Lista de estudios desactivados</h2><br>
         </center>
         <nav class="navbar navbar-light bg-light">
 
-            <a href="{{ route('estudio.crear') }}" class="btn btn-primary btn-circle btn-lg">
-                <i class="fa fa-list fa-file"></i>
-            </a><span class="text-primary"></span>
-
-            <a href="{{ route('estudio.index') }}" class="btn btn-warning pull-right">
+            <a href="{{ route('estudio.index') }}" class="btn btn-primary pull-right btn-circle btn-lg" title="Regresar">
                 <i class="fa fa-list fa-rotate-left"></i>
-                <span class="text">Estudios activos</span>
+                <span class="text"></span>
             </a>
         </nav>
     </div>
@@ -50,25 +46,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($estudios as $estudio)
+                        @forelse($estudios as $estudio)
                         <tr>
                             <td>{{$estudio->nombre_est}}</td>
                             <td>{{$estudio->descripcion_est}}</td>
                             <td>
-                                <a class="btn btn-primary" href="{{ route('estudio.editar', $estudio) }}">
-                                    <i class="fa fa-edit"></i>
+                                <a href="{{ route('estudio.activar', $estudio->id_estudio) }}" class="btn btn-warning" title="Activar">
+                                    <i class="fa fa-retweet"></i>
                                 </a>
                             </td>
                             <td>
-                                <form method="POST" action="{{ route('estudio.desactivar', $estudio->id_estudio) }}">
+
+                                <form method="POST" action="{{ route('estudio.eliminar', $estudio->id_estudio) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button class=" btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    <button class=" btn btn-danger" title="Eliminar"><i class="fa fa-trash"></i></button>
                                 </form>
+
                             </td>
                         </tr>
-                        @endforeach
-                        </form>
+                        @empty
+
+                        <p>No hay estudios desactivados para mostrar</p>
+
+                        @endforelse
+
                     </tbody>
                 </table>
             </div>
