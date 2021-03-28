@@ -169,7 +169,7 @@
                             <a href="{{ route('medicamento.index') }}"><i class="fa fa-arrows fa-fw"></i> Medicamentos</a>
                         </li>
                         <li>
-                            <a href="{{ asset('nuevoConsultorio') }}"><i class="fa fa-eye fa-fw"></i> Consultorios</a>
+                            <a href="{{ route('consultorio.index') }}"><i class="fa fa-eye fa-fw"></i> Consultorios</a>
                         </li>
 
 

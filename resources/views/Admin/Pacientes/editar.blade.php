@@ -26,9 +26,9 @@
                      <div class="form-group col-sm-6">
                          <label>Nombre</label>
                          <input type="text" class="form-control" placeholder="Ingresa el nombre del paciente" name="nombre_pac" value="{{$paciente->nombre_pac}}">
-                         @if ($errors->first('nombre_pac'))
-                         <p class="text-danger">{{$errors->first('nombre_pac')}}</p>
-                         @endif
+                         @error ('nombre_pac')
+                         <p class="text-danger">{{$message}}</p>
+                         @enderror
                      </div>
                      <div class="form-group col-sm-6">
                          <label>Apellido paterno</label>

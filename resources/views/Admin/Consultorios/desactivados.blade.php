@@ -1,5 +1,5 @@
 @extends('Admin.templeteAdmin')
-@section('titulo') Pacientes desactivados @endsection
+@section('titulo') Consultorios desactivados @endsection
 
 @section('contenido_admin')
 
@@ -8,11 +8,11 @@
 <div class="panel shadow mb-4">
     <div class="panel-header py-3">
         <center>
-            <h2 class="m-0 font-weight-bold text-primary">Lista de Pacientes Desactivados</h2><br>
+            <h2 class="m-0 font-weight-bold text-primary">Consultorios desactivados</h2><br>
         </center>
         <nav class="navbar navbar-light bg-light">
 
-            <a href="{{ route('paciente.index') }}" class="btn btn-primary pull-right btn-circle btn-lg" title="Regresar">
+            <a href="{{ route('consultorio.index') }}" class="btn btn-primary pull-right btn-circle btn-lg" title="Regresar">
                 <i class="fa fa-list fa-rotate-left"></i>
                 <span class="text"></span>
             </a>
@@ -40,28 +40,20 @@
                     <thead>
                         <tr role="row">
                             <th>Clave</th>
-                            <th>Foto</th>
-                            <th>Nombre</th>
-                            <th>Edad</th>
-                            <th>Correo</th>
-                            <th>Telefono</th>
+                            <th>Numero</th>
                             <th colspan="2">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($pacientes as $paciente)
+                        @forelse($consultorios as $consultorio)
                         <tr>
-                            <td>{{$paciente->id_paciente}}</td>
-                            <td>Aqui va la foto</td>
-                            <td>{{$paciente->nombre_pac}} {{$paciente->ap_pat_pac}} {{$paciente->ap_mat_pac}}</td>
-                            <td>{{\Carbon\Carbon::parse($paciente->fecha_nac)->age}} años</td>
-                            <td>{{$paciente-> email_pac}}</td>
-                            <td>{{$paciente->telefono_pac}}</td>
+                            <td>{{$consultorio->id_consultorio}}</td>
+                            <td>{{$consultorio->numero}}</td>
                             <td>
-                                <a href="{{ route('paciente.activar', $paciente->id_paciente) }}" class="btn btn-warning" title="Activar"><i class="fa fa-retweet"></i></a>
+                                <a href="{{ route('consultorio.activar', $consultorio->id_consultorio) }}" class="btn btn-warning" title="Activar"><i class="fa fa-retweet"></i></a>
                             </td>
                             <td>
-                                <form method="POST" action="{{ route('paciente.eliminar', $paciente->id_paciente) }}">
+                                <form method="POST" action="{{ route('consultorio.eliminar', $consultorio->id_consultorio) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button class=" btn btn-danger" title="Eliminar"><i class="fa fa-trash"></i></button>
@@ -70,17 +62,17 @@
                         </tr>
                         @empty
 
-                        <td colspan="7">
-                            <center>No hay pacientes desactivados para mostrar</center>
+                        <td colspan="3">
+                            <center>No hay consultorios desactivados para mostrar</center>
                         </td>
 
                         @endforelse
 
+                        </form>
                     </tbody>
                 </table>
             </div>
         </div>
-
     </div>
 </div>
 <br>

@@ -62,8 +62,6 @@ Route::get('desactivarEspecialidad/{especialidad_id}', [especialidadController::
 Route::get('activarEspecialidad/{especialidad_id}', [especialidadController::class, 'activarEspecialidad'])->name('activarEspecialidad');
 Route::get('eliminarEspecialidad/{especialidad_id}', [especialidadController::class, 'eliminarEspecialidad'])->name('eliminarEspecialidad');
 
-
-/* Paciente */
 Route::get('pacientes', [pacienteController::class, 'index'])->name('paciente.index');
 Route::get('pacientes/crear', [pacienteController::class, 'crear'])->name('paciente.crear');
 Route::post('pacientes/almacenar', [pacienteController::class, 'almacenar'])->name('paciente.almacenar');
@@ -72,7 +70,7 @@ Route::put('pacientes/{id}/actualizar', [pacienteController::class, 'actualizar'
 Route::delete('pacientes/{id}/desactivar', [pacienteController::class, 'desactivar'])->name('paciente.desactivar');
 Route::get('pacientes/{id}/activar', [pacienteController::class, 'activar'])->name('paciente.activar');
 Route::get('pacientes/desactivados', [pacienteController::class, 'desactivados'])->name('paciente.desactivados');
-Route::delete('paciente/{id}/eliminar', [pacienteController::class, 'eliminar'])->name('paciente.eliminar');
+Route::delete('pacientes/{id}/eliminar', [pacienteController::class, 'eliminar'])->name('paciente.eliminar');
 
 /* Horario */
 Route::get('Horarios', [horarioController::class, 'Horarios'])->name('Horarios');
@@ -134,6 +132,15 @@ Route::POST('guardaConsulta_trat', [consulta_tratController::class, 'guardaConsu
 Route::get('nuevoConsultorio', [consultorioController::class, 'nuevoConsultorio']);
 Route::POST('guardaConsultorio', [consultorioController::class, 'guardaConsultorio'])->name('guardaConsultorio');
 
+Route::get('consultorios/index', [consultorioController::class, 'index'])->name('consultorio.index');
+Route::get('consultorios/crear', [consultorioController::class, 'crear'])->name('consultorio.crear');
+Route::post('consultorios/almacenar', [consultorioController::class, 'almacenar'])->name('consultorio.almacenar');
+Route::get('consultorios/{consultorio}/editar', [consultorioController::class, 'editar'])->name('consultorio.editar');
+Route::put('consultorios/{id}/actualizar', [consultorioController::class, 'actualizar'])->name('consultorio.actualizar');
+Route::delete('consultorios/{id}/desactivar', [consultorioController::class, 'desactivar'])->name('consultorio.desactivar');
+Route::get('consultorios/{id}/activar', [consultorioController::class, 'activar'])->name('consultorio.activar');
+Route::get('consultorios/desactivados', [consultorioController::class, 'desactivados'])->name('consultorio.desactivados');
+Route::delete('consultorios/{id}/eliminar', [consultorioController::class, 'eliminar'])->name('consultorio.eliminar');
 
 Route::get('nuevaCita', [citaController::class, 'nuevaCita']);
 Route::POST('guardaCita', [citaController::class, 'guardaCita'])->name('guardaCita');
