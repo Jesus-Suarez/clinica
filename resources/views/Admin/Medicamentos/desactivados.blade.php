@@ -1,5 +1,5 @@
 @extends('Admin.templeteAdmin')
-@section('titulo') Días @endsection
+@section('titulo') Medicamentos desactivados @endsection
 
 @section('contenido_admin')
 
@@ -8,10 +8,11 @@
 <div class="panel shadow mb-4">
     <div class="panel-header py-3">
         <center>
-            <h2 class="m-0 font-weight-bold text-primary">Lista de días desactivados</h2><br>
+            <h2 class="m-0 font-weight-bold text-primary">Medicamentos desactivados</h2><br>
         </center>
         <nav class="navbar navbar-light bg-light">
-            <a href="{{ route('dia.index') }}" class="btn btn-primary pull-right btn-circle btn-lg" title="Regresar">
+
+            <a href="{{ route('medicamento.index') }}" class="btn btn-primary pull-right btn-circle btn-lg" title="Regresar">
                 <i class="fa fa-list fa-rotate-left"></i>
                 <span class="text"></span>
             </a>
@@ -39,24 +40,24 @@
                     <thead>
                         <tr role="row">
                             <th>Clave</th>
-                            <th>Día</th>
-                            <th>Doctor</th>
-                            <th>Horario</th>
+                            <th>Nombre</th>
+                            <th>Stock</th>
+                            <th>Costo</th>
                             <th colspan="2">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($dias as $dia)
+                        @forelse($medicamentos as $medicamento)
                         <tr>
-                            <td>{{$dia->id_dia}}</td>
-                            <td>{{$dia->nombre_dia}}</td>
-                            <td>{{$dia->nombre_doc}} {{$dia->ap_pat_doc}}</td>
-                            <td>De {{$dia->hora_inicio}} a {{$dia->hora_fin}}</td>
+                            <td>{{$medicamento->id_medicamento}}</td>
+                            <td>{{$medicamento->nombre_med}}</td>
+                            <td>{{$medicamento->cant_disp}}</td>
+                            <td>{{$medicamento->costo}}</td>
                             <td>
-                                <a href="{{ route('dia.activar', $dia->id_dia) }}" class="btn btn-warning" title="Activar"><i class="fa fa-retweet"></i></a>
+                                <a href="{{ route('medicamento.activar', $medicamento->id_medicamento) }}" class="btn btn-warning" title="Activar"><i class="fa fa-retweet"></i></a>
                             </td>
                             <td>
-                                <form method="POST" action="{{ route('dia.eliminar', $dia->id_dia) }}">
+                                <form method="POST" action="{{ route('medicamento.eliminar', $medicamento->id_medicamento) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button class=" btn btn-danger" title="Eliminar"><i class="fa fa-trash"></i></button>
@@ -65,9 +66,7 @@
                         </tr>
                         @empty
 
-                        <td colspan="5">
-                            <center>No hay dias desactivados para mostrar</center>
-                        </td>
+                        <td colspan="5">No hay medicamento desactivados para mostrar</td>
 
                         @endforelse
                         </form>

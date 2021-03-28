@@ -1,12 +1,12 @@
 @extends('Admin.templeteAdmin')
-@section('titulo') Nuevo medicamento @endsection
+@section('titulo') Editar medicamento @endsection
 
 @section('contenido_admin')
 
 <div class="row">
     <div class="col-lg-12">
         <br><br>
-        <h1 class="page-header dropdown-toggle">Agregar nuevo medicamento</h1><br>
+        <h1 class="page-header dropdown-toggle">Editar medicamento</h1><br>
     </div>
     <!-- /.col-lg-12 -->
 </div>
@@ -19,35 +19,35 @@
 
         </div>
         <div class="panel-body bg-info">
-            <form role="form" action="{{route('guardaMedicamento')}}" method="POST" enctype="multipart/form-data">
-                {{csrf_field()}}
+            <form action="{{route('medicamento.actualizar', $medicamento->id_medicamento)}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                 <div class="row">
                     <div class="form-group col-sm-6">
                         <label>Nombre del medicamento</label>
-                        <input type="text" class="form-control" placeholder="Ingresa el nombre del médico" name="nombre_med" value="{{old('nombre_med')}}">
-                        @if ($errors->first('nombre_med'))
-                        <p class="text-danger">{{$errors->first('nombre_med')}}</p>
-                        @endif
+                        <input type="text" class="form-control" placeholder="Ingresa el nombre del médico" name="nombre_med" value="{{$medicamento->nombre_med}}">
+                        @error ('nombre_med')
+                        <p class="text-danger">{{$message}}</p>
+                        @enderror
                     </div>
                     <div class="form-group col-sm-6">
                         <label>Cantidad disponible</label>
-                        <input type="number" class="form-control" placeholder="Registra stock (mínimo 100 - máximo 999)" name="cant_disp" value="{{old('cant_disp')}}">
-                        @if ($errors->first('cant_disp'))
-                        <p class="text-danger">{{$errors->first('cant_disp')}}</p>
-                        @endif
+                        <input type="number" class="form-control" placeholder="Registra stock (-máx 5000)" name="cant_disp" value="{{$medicamento->cant_disp}}">
+                        @error ('cant_disp')
+                        <p class="text-danger">{{$message}}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-sm-6">
-                        <label>Costo</label>        
-                        <input type="number" class="form-control" placeholder="Ingresa el costo del medicamento" name="costo" value="{{old('costo')}}">
-                        @if ($errors->first('costo'))
-                        <p class="text-danger">{{$errors->first('costo')}}</p>
-                        @endif
+                        <label>Costo</label>
+                        <input type="number" class="form-control" placeholder="Ingresa el costo del medicamento" name="costo" value="{{$medicamento->costo}}" step="0.01">
+                        @error ('costo')
+                        <p class="text-danger">{{$message}}</p>
+                        @enderror
                     </div>
 
                 </div>
-
 
                 <div class="row">
                     <div class="col-sm-10"></div>

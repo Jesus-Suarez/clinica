@@ -72,7 +72,9 @@
                         </tr>
                         @empty
 
-                        <p>No hay pacientes desactivados para mostrar</p>
+                        <td colspan="7">
+                            <center>No hay pacientes desactivados para mostrar</center>
+                        </td>
 
                         @endforelse
 

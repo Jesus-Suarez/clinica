@@ -95,8 +95,15 @@ Route::get('estudios/{id}/activar', [estudioController::class, 'activar'])->name
 Route::get('estudios/desactivados', [estudioController::class, 'desactivados'])->name('estudio.desactivados');
 Route::delete('estudios/{id}/eliminar', [estudioController::class, 'eliminar'])->name('estudio.eliminar');
 
-Route::get('nuevoMedicamento', [medicamentoController::class, 'nuevoMedicamento']);
-Route::POST('guardaMedicamento', [medicamentoController::class, 'guardaMedicamento'])->name('guardaMedicamento');
+Route::get('medicamentos/index', [medicamentoController::class, 'index'])->name('medicamento.index');
+Route::get('medicamentos/crear', [medicamentoController::class, 'crear'])->name('medicamento.crear');
+Route::POST('medicamentos/almacenar', [medicamentoController::class, 'almacenar'])->name('medicamento.almacenar');
+Route::get('medicamentos/{medicamento}/editar', [medicamentoController::class, 'editar'])->name('medicamento.editar');
+Route::put('medicamentos/{id}/actualizar', [medicamentoController::class, 'actualizar'])->name('medicamento.actualizar');
+Route::delete('medicamentos/{id}/desactivar', [medicamentoController::class, 'desactivar'])->name('medicamento.desactivar');
+Route::get('medicamentos/{id}/activar', [medicamentoController::class, 'activar'])->name('medicamento.activar');
+Route::get('medicamentos/desactivados', [medicamentoController::class, 'desactivados'])->name('medicamento.desactivados');
+Route::delete('medicamentos/{id}/eliminar', [medicamentoController::class, 'eliminar'])->name('medicamento.eliminar');
 
 /* Tratamiento */
 Route::get('Tratamientos', [tratamientoController::class, 'Tratamientos'])->name('Tratamientos');

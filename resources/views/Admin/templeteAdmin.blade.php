@@ -166,7 +166,7 @@
                             <a href="{{ asset('nuevaConsulta_trat') }}"><i class="fa fa-check-square-o fa-fw"></i> Consultas Tratamientos</a>
                         </li>
                         <li>
-                            <a href="{{ asset('nuevoMedicamento') }}"><i class="fa fa-arrows fa-fw"></i> Medicamentos</a>
+                            <a href="{{ route('medicamento.index') }}"><i class="fa fa-arrows fa-fw"></i> Medicamentos</a>
                         </li>
                         <li>
                             <a href="{{ asset('nuevoConsultorio') }}"><i class="fa fa-eye fa-fw"></i> Consultorios</a>

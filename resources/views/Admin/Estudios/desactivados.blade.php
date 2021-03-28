@@ -67,10 +67,11 @@
                         </tr>
                         @empty
 
-                        <p>No hay estudios desactivados para mostrar</p>
+                        <td colspan="5">
+                            <center>No hay estudios desactivados para mostrar</center>
+                        </td>
 
                         @endforelse
-
                     </tbody>
                 </table>
             </div>
