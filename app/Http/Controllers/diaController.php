@@ -14,23 +14,9 @@ class diaController extends Controller
 
     public function index()
     {
-        /*  $dias = DB::table('dias')
-            ->join('doctores', 'doctores.id_doctor', '=', 'dias.id_doctor')
-            ->join('horarios', 'horarios.id_horario', '=', 'dias.id_horario')
-            ->select(
-                'dias.id_dia',
-                'dias.nombre_dia',
-                'doctores.nombre_doc',
-                'doctores.ap_pat_doc',
-                'horarios.hora_inicio',
-                'horarios.hora_fin'
-            )
-            ->get();
-        return $dias = var_dump($dias);
-
-        return view('Admin.Dias.index')->with('dias', $dias); */
         return view('Admin.Dias.index', [
             'dias' =>  DB::table('dias')
+                ->where('dias.deleted_at', (NULL))
                 ->join('doctores', 'doctores.id_doctor', '=', 'dias.id_doctor')
                 ->join('horarios', 'horarios.id_horario', '=', 'dias.id_horario')
                 ->select(
@@ -84,7 +70,6 @@ class diaController extends Controller
 
     public function actualizar(Request $request, $id)
     {
-
         $this->validate($request, [
             'nombre_dia' => 'required|string',
             'id_doctor' => 'required|integer',
@@ -120,7 +105,7 @@ class diaController extends Controller
     public function desactivados()
     {
         return view('Admin.Dias.desactivados', [
-            'pacientes' => Dia::onlyTrashed()->get()
+            'dias' => Dia::onlyTrashed()->get()
         ]);
     }
 
