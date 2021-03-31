@@ -148,7 +148,7 @@
                             <a href="{{ route('cita.index') }}"><i class="fa fa-check fa-fw"></i> Citas</a>
                         </li>
                         <li>
-                            <a href="{{ asset('nuevaConsulta') }}"><i class="fa fa-book fa-fw"></i> Consultas</a>
+                            <a href="{{ route('consulta.index') }}"><i class="fa fa-book fa-fw"></i> Consultas</a>
                         </li>
                         <li>
                             <a href="{{ asset('Tratamientos') }}"><i class="fa fa-signal fa-fw"></i> Tratamientos</a>

@@ -59,14 +59,14 @@ class consultorioController extends Controller
     public function desactivar($id)
     {
         Consultorio::destroy($id);
-        Session::flash('message', 'El consultorio ha sido desactivado exitosamente!!');
+        Session::flash('message3', 'El consultorio ha sido desactivado exitosamente!!');
         return back();
     }
 
     public function activar($id)
     {
         Consultorio::withTrashed()->findOrFail($id)->restore();
-        Session::flash('message', 'El consultorio ha sido activado exitosamente!!');
+        Session::flash('message3', 'El consultorio ha sido activado exitosamente!!');
         return back();
     }
 

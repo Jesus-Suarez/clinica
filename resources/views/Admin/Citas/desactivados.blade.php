@@ -42,9 +42,9 @@
                             <th>fecha</th>
                             <th>hora</th>
                             <th>Doctor a cargo</th>
+                            <th>Contacto del paciente</th>
                             <th>Paciente</th>
-                            <th>Telefono del paciente</th>
-                            <th>Correo del paciente</th>
+                            <th>Contacto del paciente</th>
                             <th>Consultorio</th>
                             <th colspan="2">Acciones</th>
                         </tr>
@@ -56,8 +56,8 @@
                             <td>{{$cita->fecha_cita}}</td>
                             <td>{{$cita->hora}}</td>
                             <td>{{$cita->nombre_doc}} {{$cita->ap_pat_doc}}</td>
+                            <td>{{$cita->telefono_doc}}</td>
                             <td>{{$cita->nombre_pac}} {{$cita->ap_pat_pac}}</td>
-                            <td>{{$cita->email_pac}}</td>
                             <td>{{$cita->telefono_pac}}</td>
                             <td>{{$cita->numero}}</td>
                             <td>
@@ -73,8 +73,8 @@
                         </tr>
                         @empty
 
-                        <td colspan="5">
-                            <center>No hay dias desactivados para mostrar</center>
+                        <td colspan="9">
+                            <center>No hay citas desactivados para mostrar</center>
                         </td>
                         @endforelse
                         </form>

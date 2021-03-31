@@ -62,14 +62,14 @@ class estudioController extends Controller
     public function desactivar($id)
     {
         Estudio::destroy($id);
-        Session::flash('message', 'El estudio ha sido desactivado exitosamente!!');
+        Session::flash('message3', 'El estudio ha sido desactivado exitosamente!!');
         return back();
     }
 
     public function activar($id)
     {
         Estudio::withTrashed()->findOrFail($id)->restore();
-        Session::flash('message', 'El estudio ha sido activado exitosamente!!');
+        Session::flash('message3', 'El estudio ha sido activado exitosamente!!');
         return back();
     }
 

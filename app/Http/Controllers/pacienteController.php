@@ -99,14 +99,14 @@ class pacienteController extends Controller
     public function desactivar($id)
     {
         Paciente::destroy($id);
-        Session::flash('message', 'El paciente ha sido desactivado exitosamente!!');
+        Session::flash('message3', 'El paciente ha sido desactivado exitosamente!!');
         return back();
     }
 
     public function activar($id)
     {
         Paciente::withTrashed()->findOrFail($id)->restore();
-        Session::flash('message', 'El paciente ha sido activado exitosamente!!');
+        Session::flash('message3', 'El paciente ha sido activado exitosamente!!');
         return back();
     }
 

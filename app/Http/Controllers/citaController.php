@@ -27,9 +27,9 @@ class citaController extends Controller
                     'citas.hora',
                     'doctores.nombre_doc',
                     'doctores.ap_pat_doc',
+                    'doctores.telefono_doc',
                     'pacientes.nombre_pac',
                     'pacientes.ap_pat_pac',
-                    'pacientes.email_pac',
                     'pacientes.telefono_pac',
                     'consultorios.numero',
                 )
@@ -69,7 +69,7 @@ class citaController extends Controller
         return redirect()->route('cita.index');
     }
 
-    public function editar($id_cita)
+    public function editar($id)
     {
         return   view('Admin.Citas.editar', [
             "doctores" => doctores::select('id_doctor', 'nombre_doc', 'ap_pat_doc', 'ap_mat_doc')
@@ -81,7 +81,7 @@ class citaController extends Controller
             "consultorios" => Consultorio::select('id_consultorio', 'numero')
                 ->orderBy('created_at', 'desc')
                 ->get(),
-            "cita" => Cita::where('id_cita', $id_cita)
+            "cita" => Cita::where('id_cita', $id)
                 ->get()
         ]);
     }
@@ -112,14 +112,14 @@ class citaController extends Controller
     public function desactivar($id)
     {
         Cita::destroy($id);
-        Session::flash('message', 'La cita ha sido desactivada exitosamente!!');
+        Session::flash('message3', 'La cita ha sido desactivada exitosamente!!');
         return back();
     }
 
     public function activar($id)
     {
         Cita::withTrashed()->findOrFail($id)->restore();
-        Session::flash('message', 'La cita ha sido activada exitosamente!!');
+        Session::flash('message3', 'La cita ha sido activada exitosamente!!');
         return back();
     }
 
@@ -138,9 +138,9 @@ class citaController extends Controller
                     'citas.hora',
                     'doctores.nombre_doc',
                     'doctores.ap_pat_doc',
+                    'doctores.telefono_doc',
                     'pacientes.nombre_pac',
                     'pacientes.ap_pat_pac',
-                    'pacientes.email_pac',
                     'pacientes.telefono_pac',
                     'consultorios.numero',
                 )

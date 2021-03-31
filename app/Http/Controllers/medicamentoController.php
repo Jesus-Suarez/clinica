@@ -65,14 +65,14 @@ class medicamentoController extends Controller
     public function desactivar($id)
     {
         Medicamento::destroy($id);
-        Session::flash('message', 'El medicamento ha sido desactivado exitosamente!!');
+        Session::flash('message3', 'El medicamento ha sido desactivado exitosamente!!');
         return back();
     }
 
     public function activar($id)
     {
         Medicamento::withTrashed()->findOrFail($id)->restore();
-        Session::flash('message', 'El medicamento ha sido activado exitosamente!!');
+        Session::flash('message3', 'El medicamento ha sido activado exitosamente!!');
         return back();
     }
 

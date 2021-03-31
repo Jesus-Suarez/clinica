@@ -1,5 +1,5 @@
 @extends('Admin.templeteAdmin')
-@section('titulo') Medicamentos @endsection
+@section('titulo') Consultas @endsection
 
 @section('contenido_admin')
 
@@ -8,15 +8,15 @@
 <div class="panel shadow mb-4">
     <div class="panel-header py-3">
         <center>
-            <h2 class="m-0 font-weight-bold text-primary">Lista de Medicamentos</h2><br>
+            <h2 class="m-0 font-weight-bold text-primary">Consultas</h2><br>
         </center>
         <nav class="navbar navbar-light bg-light">
 
-            <a href="{{ route('medicamento.crear') }}" class="btn btn-primary btn-circle btn-lg" title="Dar de alta nuevo medicamento">
+            <a href="{{ route('consulta.crear') }}" class="btn btn-primary btn-circle btn-lg" title="Crear nueva consulta">
                 <i class="fa fa-list fa-file"></i>
             </a><span class="text-primary"></span>
 
-            <a href="{{ route('medicamento.desactivados') }}" class="btn btn-warning pull-right">
+            <a href="{{ route('consulta.desactivados') }}" class="btn btn-warning pull-right">
                 <i class="fa fa-list fa-rotate-left"></i>
                 <span class="text">Restaurar registros</span>
             </a>
@@ -44,26 +44,28 @@
                     <thead>
                         <tr role="row">
                             <th>Clave</th>
-                            <th>Nombre</th>
-                            <th>Stock</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
                             <th>Costo</th>
+                            <th>Tratamiento</th>
                             <th colspan="2">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($medicamentos as $medicamento)
+                        @forelse($consultas as $consulta)
                         <tr>
-                            <td>{{$medicamento->id_medicamento}}</td>
-                            <td>{{$medicamento->nombre_med}}</td>
-                            <td>{{$medicamento->cant_disp}}</td>
-                            <td>{{$medicamento->costo}}</td>
+                            <td>{{$consulta->id_consulta}}</td>
+                            <td>{{$consulta->fecha_cita}}</td>
+                            <td>{{$consulta->hora}}</td>
+                            <td>$ {{$consulta->costo}}</td>
+                            <td>{{$consulta->descripcion_trat}}</td>
                             <td>
-                                <a class="btn btn-primary" href="{{ route('medicamento.editar', $medicamento) }}" title="Editar">
+                                <a class="btn btn-primary" href="{{ route('consulta.editar', $consulta->id_consulta) }}" title="Editar">
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </td>
                             <td>
-                                <form method="POST" action="{{ route('medicamento.desactivar', $medicamento->id_medicamento) }}" title="Eliminar">
+                                <form method="POST" action="{{ route('consulta.desactivar', $consulta->id_consulta) }}" title="Eliminar">
                                     @csrf
                                     @method('DELETE')
                                     <button class=" btn btn-danger"><i class="fa fa-trash"></i></button>
@@ -71,8 +73,8 @@
                             </td>
                         </tr>
                         @empty
-                        <td colspan="5">
-                            <center>No hay pacientes para mostrar</center>
+                        <td colspan="6">
+                            <center>No hay consultas para mostrar</center>
                         </td>
                         @endforelse
                         </form>

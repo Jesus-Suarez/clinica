@@ -16,7 +16,7 @@ class CreateConsultaTratamientosTable extends Migration
         Schema::create('consulta_tratamientos', function (Blueprint $table) {
             $table->bigIncrements('id_cons_trat');
 
-            $table->integer('cant_disp')
+            $table->integer('cant_med')
                 ->unsigned()
                 ->comment('Cantidad de medicamentos que se venden en la consulta'); /* solo permite numeros enteros sin signo */
 

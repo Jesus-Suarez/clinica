@@ -50,7 +50,6 @@ Route::get('desactivarDoctor/{id_doctor}', [doctorController::class, 'desactivar
 Route::get('activarDoctor/{id_doctor}', [doctorController::class, 'activarDoctor'])->name('activarDoctor');
 Route::get('eliminarDoctor/{id_doctor}', [doctorController::class, 'eliminarDoctor'])->name('eliminarDoctor');
 
-
 /* Especialidad */
 Route::get('Especialidades', [especialidadController::class, 'Especialidades'])->name('Especialidades');
 Route::get('nuevaEspecialidad', [especialidadController::class, 'nuevaEspecialidad']);
@@ -117,7 +116,7 @@ Route::get('eliminarTratamiento/{id_tratamiento}', [tratamientoController::class
 Route::get('dias/index', [diaController::class, 'index'])->name('dia.index');
 Route::get('dias/crear', [diaController::class, 'crear'])->name('dia.crear');
 Route::POST('dias/almacenar', [diaController::class, 'almacenar'])->name('dia.almacenar');
-Route::get('dias/{id_dia}/editar', [diaController::class, 'editar'])->name('dia.editar');
+Route::get('dias/{id}/editar', [diaController::class, 'editar'])->name('dia.editar');
 Route::put('dias/{id}/actualizar', [diaController::class, 'actualizar'])->name('dia.actualizar');
 Route::delete('dias/{id}/desactivar', [diaController::class, 'desactivar'])->name('dia.desactivar');
 Route::get('dias/{id}/activar', [diaController::class, 'activar'])->name('dia.activar');
@@ -141,19 +140,19 @@ Route::delete('consultorios/{id}/eliminar', [consultorioController::class, 'elim
 Route::get('citas/index', [citaController::class, 'index'])->name('cita.index');
 Route::get('citas/crear', [citaController::class, 'crear'])->name('cita.crear');
 Route::POST('citas/almacenar', [citaController::class, 'almacenar'])->name('cita.almacenar');
-Route::get('citas/{id_cita}/editar', [citaController::class, 'editar'])->name('cita.editar');
+Route::get('citas/{id}/editar', [citaController::class, 'editar'])->name('cita.editar');
 Route::put('citas/{id}/actualizar', [citaController::class, 'actualizar'])->name('cita.actualizar');
 Route::delete('citas/{id}/desactivar', [citaController::class, 'desactivar'])->name('cita.desactivar');
 Route::get('citas/{id}/activar', [citaController::class, 'activar'])->name('cita.activar');
 Route::get('citas/desactivados', [citaController::class, 'desactivados'])->name('cita.desactivados');
 Route::delete('citas/{id}/eliminar', [citaController::class, 'eliminar'])->name('cita.eliminar');
 
-/* Consulta */
-Route::get('nuevaConsulta', [consultaController::class, 'nuevaConsulta']);
-Route::POST('guardaConsulta', [consultaController::class, 'guardaConsulta'])->name('guardaConsulta');
-
-Route::get('nuevaEspecialidad', [especialidadController::class, 'nuevaEspecialidad']);
-Route::POST('guardarEspecialidad', [especialidadController::class, 'guardarEspecialidad'])->name('guardarEspecialidad');
-
-Route::get('nuevoTratamiento', [tratamientoController::class, 'nuevoTratamiento']);
-Route::POST('guardaTratamiento', [tratamientoController::class, 'guardaTratamiento'])->name('guardaTratamiento');
+Route::get('consultas/index', [consultaController::class, 'index'])->name('consulta.index');
+Route::get('consultas/crear', [consultaController::class, 'crear'])->name('consulta.crear');
+Route::POST('consultas/almacenar', [consultaController::class, 'almacenar'])->name('consulta.almacenar');
+Route::get('consultas/{id}/editar', [consultaController::class, 'editar'])->name('consulta.editar');
+Route::put('consultas/{id}/actualizar', [consultaController::class, 'actualizar'])->name('consulta.actualizar');
+Route::delete('consultas/{id}/desactivar', [consultaController::class, 'desactivar'])->name('consulta.desactivar');
+Route::get('consultas/{id}/activar', [consultaController::class, 'activar'])->name('consulta.activar');
+Route::get('consultas/desactivados', [consultaController::class, 'desactivados'])->name('consulta.desactivados');
+Route::delete('consultas/{id}/eliminar', [consultaController::class, 'eliminar'])->name('consulta.eliminar');

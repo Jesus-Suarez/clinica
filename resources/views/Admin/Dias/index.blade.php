@@ -51,7 +51,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($dias as $dia)
+                        @forelse($dias as $dia)
                         <tr>
                             <td>{{$dia->id_dia}}</td>
                             <td>{{$dia->nombre_dia}}</td>
@@ -70,7 +70,11 @@
                                 </form>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                        <td colspan="6">
+                            <center>No hay días para mostrar</center>
+                        </td>
+                        @endforelse
                         </form>
                     </tbody>
                 </table>

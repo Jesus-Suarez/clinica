@@ -12,6 +12,6 @@ class consulta_tratamiento extends Model
     use SoftDeletes;
 
     protected $primaryKey = 'id_cons_trat';
-    protected $fillable = ['cant_disp', 'id_consulta', 'id_estudio', 'id_medicamento'];
+    protected $fillable = ['cant_med', 'id_consulta', 'id_estudio', 'id_medicamento'];
     protected $dates = ['deleted_at'];
 }

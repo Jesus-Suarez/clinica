@@ -47,22 +47,22 @@
                             <th>fecha</th>
                             <th>hora</th>
                             <th>Doctor a cargo</th>
+                            <th>Contacto del doctor</th>
                             <th>Paciente</th>
-                            <th>Telefono del paciente</th>
-                            <th>Correo del paciente</th>
+                            <th>Contacto del paciente</th>
                             <th>Consultorio</th>
                             <th colspan="2">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($citas as $cita)
+                        @forelse($citas as $cita)
                         <tr>
                             <td>{{$cita->id_cita}}</td>
                             <td>{{$cita->fecha_cita}}</td>
                             <td>{{$cita->hora}}</td>
                             <td>{{$cita->nombre_doc}} {{$cita->ap_pat_doc}}</td>
+                            <td>{{$cita->telefono_doc}}</td>
                             <td>{{$cita->nombre_pac}} {{$cita->ap_pat_pac}}</td>
-                            <td>{{$cita->email_pac}}</td>
                             <td>{{$cita->telefono_pac}}</td>
                             <td>{{$cita->numero}}</td>
                             <td>
@@ -78,7 +78,11 @@
                                 </form>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                        <td colspan="9">
+                            <center>No hay citas para mostrar</center>
+                        </td>
+                        @endforelse
                         </form>
                     </tbody>
                 </table>

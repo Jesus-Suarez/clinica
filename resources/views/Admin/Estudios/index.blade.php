@@ -50,7 +50,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($estudios as $estudio)
+                        @forelse($estudios as $estudio)
                         <tr>
                             <td>{{$estudio->id_estudio}}</td>
                             <td>{{$estudio->nombre_est}}</td>
@@ -68,7 +68,11 @@
                                 </form>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                        <td colspan="5">
+                            <center>No hay estudios para mostrar</center>
+                        </td>
+                        @endforelse
                         </form>
                     </tbody>
                 </table>

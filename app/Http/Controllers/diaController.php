@@ -55,7 +55,7 @@ class diaController extends Controller
         return redirect()->route('dia.index');
     }
 
-    public function editar($id_dia)
+    public function editar($id)
     {
         return  view('Admin.Dias.editar', [
             "doctores" => doctores::select('id_doctor', 'nombre_doc', 'ap_pat_doc')
@@ -64,7 +64,7 @@ class diaController extends Controller
                 ->orderBy('created_at', 'desc')->get(),
             "dias" => Dia::select('id_dia', 'nombre_dia')
                 ->orderBy('created_at', 'desc')->get(),
-            "dia" => Dia::where('id_dia', $id_dia)->get()
+            "dia" => Dia::where('id_dia', $id)->get()
         ]);
     }
 
@@ -90,14 +90,14 @@ class diaController extends Controller
     public function desactivar($id)
     {
         Dia::destroy($id);
-        Session::flash('message', 'El dia ha sido desactivado exitosamente!!');
+        Session::flash('message3', 'El dia ha sido desactivado exitosamente!!');
         return back();
     }
 
     public function activar($id)
     {
         Dia::withTrashed()->findOrFail($id)->restore();
-        Session::flash('message', 'El dia ha sido activado exitosamente!!');
+        Session::flash('message3', 'El dia ha sido activado exitosamente!!');
         return back();
     }
 

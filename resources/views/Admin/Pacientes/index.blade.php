@@ -53,7 +53,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($pacientes as $paciente)
+                        @forelse($pacientes as $paciente)
                         <tr>
                             <td>{{$paciente->id_paciente}}</td>
                             <td>Aqui va la foto</td>
@@ -74,7 +74,11 @@
                                 </form>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                        <td colspan="9">
+                            <center>No hay pacientes para mostrar</center>
+                        </td>
+                        @endforelse
                         </form>
                     </tbody>
                 </table>
