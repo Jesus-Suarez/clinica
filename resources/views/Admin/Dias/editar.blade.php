@@ -34,9 +34,9 @@
                             @endif
                             @endforeach
                         </select>
-                        @if ($errors->first('nombre_dia'))
-                        <p class=" text-danger">{{$errors->first('nombre_dia')}}</p>
-                        @endif
+                        @error ('nombre_dia')
+                        <p class=" text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="form-group col-sm-6">
                         <label>Doctor</label>
@@ -77,7 +77,7 @@
                     <div class="form-group col-sm-2">
                         <label></label>
                         <button class="btn btn-sm btn-block btn-primary" type="submit">
-                            Guardar
+                            Actualizar
                         </button>
                     </div>
                 </div>

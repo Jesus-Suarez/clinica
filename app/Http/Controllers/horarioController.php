@@ -67,7 +67,7 @@ class horarioController extends Controller
 
     public function activarHorario($id_horario)
     {
-        $horario=horarios::onlyTrashed()->where('id_horario',$id_horario)->restore();
+        $horario = horarios::onlyTrashed()->where('id_horario', $id_horario)->restore();
         Session::flash('message', 'El horario fue activado correctamente!');
         return redirect()->route('Horarios');
     }

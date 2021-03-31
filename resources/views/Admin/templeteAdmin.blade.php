@@ -145,7 +145,7 @@
                             <a href="{{ route('paciente.index') }}"><i class="fa fa-user-plus fa-fw"></i> Pacientes</a>
                         </li>
                         <li>
-                            <a href="{{ asset('nuevaCita') }}"><i class="fa fa-check fa-fw"></i> Citas</a>
+                            <a href="{{ route('cita.index') }}"><i class="fa fa-check fa-fw"></i> Citas</a>
                         </li>
                         <li>
                             <a href="{{ asset('nuevaConsulta') }}"><i class="fa fa-book fa-fw"></i> Consultas</a>

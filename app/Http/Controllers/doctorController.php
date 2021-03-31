@@ -48,7 +48,7 @@ class doctorController extends Controller
             'especialidad_id' => 'required|integer|not_in:0',
             'email_doc' => 'required|email|unique:doctores,email_doc',
             'pass' => 'required|regex:/^[A-Z,a-z,0-9,á,é,í,ó,ú,ñ]*$/',
-            'foto_doc' => 'mimes:jpeg,png,jpg,gif'
+            'foto_doc' => 'required|mimes:jpeg,png,jpg,gif'
 
         ]);
 
@@ -118,43 +118,44 @@ class doctorController extends Controller
         $doc->email_doc = $request->email_doc;
         $doc->pass = $request->pass;
         $doc->save();
-        Session::flash('message', 'El doctor fue modificado correctamente!!!');
+        Session::flash('message', 'El doctor fue modificado correctamente!');
         return redirect()->route('Doctores');
     }
     public function desactivarDoctor($id_doctor)
     {
-        $doctor = doctores::find($id_doctor)->delete();
+        $doctor=doctores::find($id_doctor)->delete();
         Session::flash('message3', 'El doctor fue desactivado correctamente!');
         return redirect()->route('Doctores');
     }
 
     public function activarDoctor($id_doctor)
     {
-        $doctor = doctores::onlyTrashed()->where('id_doctor', $id_doctor)->restore();
+        $doctor=doctores::onlyTrashed()->where('id_doctor',$id_doctor)->restore();
         Session::flash('message', 'El doctor fue activado correctamente!');
         return redirect()->route('Doctores');
     }
 
     public function DoctoresElim()
     {
-        $doctor = doctores::onlyTrashed()->get();
+        $doctor=doctores::onlyTrashed()->get();
         return view('Admin.Doctor.DoctoresElim')
-            ->with('doctor', $doctor);
+        ->with('doctor',$doctor);
     }
-
+  
     public function eliminarDoctor($especialidad_id)
     {
-        /*** $buscadoc=doctores::where('especialidad_id',$especialidad_id)->get();
+   /*** $buscadoc=doctores::where('especialidad_id',$especialidad_id)->get();
         $cuantos= count($buscadoc);
         if($cuantos==0){
-         */
-        $doctores = doctores::onlyTrashed()->find($especialidad_id)->forceDelete();
-        Session::flash('message2', 'La especialidad fue eliminada permanentemente!');
-        return redirect()->route('Doctores');
+    */
+            $doctores=doctores::onlyTrashed()->find($especialidad_id)->forceDelete();
+            Session::flash('message2', 'La especialidad fue eliminada permanentemente!');
+            return redirect()->route('Doctores');
         //  }
-        // else{
-        //   Session::flash('message2', 'La especialidad no puede ser eliminada ya que tiene registros en doctores!');
-        // return redirect()->route('EspecialidadesElim');
+       // else{
+       //   Session::flash('message2', 'La especialidad no puede ser eliminada ya que tiene registros en doctores!');
+           // return redirect()->route('EspecialidadesElim');
         //}  
     }
+    
 }

@@ -128,10 +128,6 @@ Route::delete('dias/{id}/eliminar', [diaController::class, 'eliminar'])->name('d
 Route::get('nuevaConsulta_trat', [consulta_tratController::class, 'nuevaConsulta_trat']);
 Route::POST('guardaConsulta_trat', [consulta_tratController::class, 'guardaConsulta_trat'])->name('guardaConsulta_trat');
 
-/* Consultorio */
-Route::get('nuevoConsultorio', [consultorioController::class, 'nuevoConsultorio']);
-Route::POST('guardaConsultorio', [consultorioController::class, 'guardaConsultorio'])->name('guardaConsultorio');
-
 Route::get('consultorios/index', [consultorioController::class, 'index'])->name('consultorio.index');
 Route::get('consultorios/crear', [consultorioController::class, 'crear'])->name('consultorio.crear');
 Route::post('consultorios/almacenar', [consultorioController::class, 'almacenar'])->name('consultorio.almacenar');
@@ -142,8 +138,15 @@ Route::get('consultorios/{id}/activar', [consultorioController::class, 'activar'
 Route::get('consultorios/desactivados', [consultorioController::class, 'desactivados'])->name('consultorio.desactivados');
 Route::delete('consultorios/{id}/eliminar', [consultorioController::class, 'eliminar'])->name('consultorio.eliminar');
 
-Route::get('nuevaCita', [citaController::class, 'nuevaCita']);
-Route::POST('guardaCita', [citaController::class, 'guardaCita'])->name('guardaCita');
+Route::get('citas/index', [citaController::class, 'index'])->name('cita.index');
+Route::get('citas/crear', [citaController::class, 'crear'])->name('cita.crear');
+Route::POST('citas/almacenar', [citaController::class, 'almacenar'])->name('cita.almacenar');
+Route::get('citas/{id_cita}/editar', [citaController::class, 'editar'])->name('cita.editar');
+Route::put('citas/{id}/actualizar', [citaController::class, 'actualizar'])->name('cita.actualizar');
+Route::delete('citas/{id}/desactivar', [citaController::class, 'desactivar'])->name('cita.desactivar');
+Route::get('citas/{id}/activar', [citaController::class, 'activar'])->name('cita.activar');
+Route::get('citas/desactivados', [citaController::class, 'desactivados'])->name('cita.desactivados');
+Route::delete('citas/{id}/eliminar', [citaController::class, 'eliminar'])->name('cita.eliminar');
 
 /* Consulta */
 Route::get('nuevaConsulta', [consultaController::class, 'nuevaConsulta']);

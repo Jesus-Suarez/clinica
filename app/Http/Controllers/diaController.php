@@ -11,7 +11,6 @@ use Session;
 
 class diaController extends Controller
 {
-
     public function index()
     {
         return view('Admin.Dias.index', [
@@ -27,7 +26,8 @@ class diaController extends Controller
                     'horarios.hora_inicio',
                     'horarios.hora_fin'
                 )
-                ->get()
+                ->orderBy('dias.created_at', 'desc')
+                ->get(),
         ]);
     }
 
