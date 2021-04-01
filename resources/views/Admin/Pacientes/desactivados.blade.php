@@ -52,7 +52,14 @@
                         @forelse($pacientes as $paciente)
                         <tr>
                             <td>{{$paciente->id_paciente}}</td>
-                            <td>Aqui va la foto</td>
+                            <td>
+                                @if ($paciente->foto_pac)
+                                <img src="{{ Storage::url($paciente->foto_pac) }}" width="50px" class="img-thumbnail img-responsive" alt="Responsive image">
+                                @else
+
+                                <img src="{{ asset('archivos/Sinfoto.png') }}" width="50px" class="img-thumbnail img-responsive" alt="Responsive image">
+                                @endif
+                            </td>
                             <td>{{$paciente->nombre_pac}} {{$paciente->ap_pat_pac}} {{$paciente->ap_mat_pac}}</td>
                             <td>{{\Carbon\Carbon::parse($paciente->fecha_nac)->age}} años</td>
                             <td>{{$paciente-> email_pac}}</td>

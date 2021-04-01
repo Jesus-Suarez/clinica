@@ -19,7 +19,7 @@
 
          </div>
          <div class="panel-body bg-info">
-             <form action="{{route('paciente.crear')}}" method="POST" enctype="multipart/form-data">
+             <form action="{{route('paciente.almacenar')}}" method="POST" enctype="multipart/form-data">
                  {{csrf_field()}}
                  <div class="row">
                      <div class="form-group col-sm-6">
@@ -136,7 +136,7 @@
                  <div class="row">
                      <div class="form-group col-sm-6">
                          <label>Foto</label>
-                         <input type="file" class="form-control" name="foto_pac" accept="image/png, .jpeg, .jpg, image/gif">
+                         <input type="file" class="form-control-file" name="foto_pac" accept="image/png, .jpeg, .jpg, image/gif" value="{{ old('foto_pac') }}">
                          @error('foto_pac')
                          <p class="text-danger">{{$message}}</p>
                          @enderror

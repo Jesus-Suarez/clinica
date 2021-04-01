@@ -60,8 +60,8 @@
                                 <input type="radio" name="sexo_doc" value="F">Femenino
                             </label>
                         </div>
-                        @endif
-                        @if($consulta->sexo_doc == 'F')
+
+                        @else
                         <div class="radio">
                             <label>
                                 <input type="radio" name="sexo_doc" value="M">Masculino
@@ -72,9 +72,6 @@
                                 <input type="radio" name="sexo_doc" value="F" checked>Femenino
                             </label>
                         </div>
-                        @endif
-                        @if ($errors->first('sexo_doc'))
-                        <p class="text-danger">{{$errors->first('sexo_doc')}}</p>
                         @endif
                     </div>
                 </div>
@@ -135,9 +132,14 @@
                         <p class="text-danger">{{$errors->first('pass')}}</p>
                         @endif
                     </div>
-                    <div class="form-group col-sm-6">
+                    @if ($consulta->foto_doc)
+                    <div class="form-group col-sm-3">
+                        <img src="{{ Storage::url($consulta->foto_doc) }}" class="img-thumbnail img-responsive" alt="Responsive image">
+                    </div>
+                    @endif
+                    <div class="form-group col-sm-3">
                         <label>Foto</label>
-                        <input type="file" class="form-control" name="foto_doc" accept="image/png, .jpeg, .jpg, image/gif">
+                        <input type="file" class="form-control-file" name="foto_doc" accept="image/png, .jpeg, .jpg, image/gif">
                         @if ($errors->first('foto_doc'))
                         <p class="text-danger">{{$errors->first('foto_doc')}}</p>
                         @endif

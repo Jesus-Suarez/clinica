@@ -24,7 +24,7 @@ class CreatePacientesTable extends Migration
             $table->string('telefono_pac', 30);
             $table->string('email_pac', 50)->unique();
             $table->string('pass_pac');
-            $table->string('foto_pac', 100)->default('Sinfoto.jpg');;
+            $table->string('foto_pac', 100);
             $table->string('estado', 100);
             $table->string('municipio', 100);
             $table->string('cp', 10);

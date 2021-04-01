@@ -84,7 +84,7 @@
                     <div class="form-group col-sm-6">
                         <label>Especialidad</label>
 
-                        <select class="form-control" name="especialidad_id"">
+                        <select class="form-control" name="especialidad_id">
                             <option selected="">--- Elija una especialidad ---</option>
                             @foreach($especialidad as $esp)
                             <option value=" {{$esp->especialidad_id}}">{{$esp->nombre_esp}} </option>
@@ -119,7 +119,7 @@
                     </div>
                     <div class="form-group col-sm-6">
                         <label>Foto</label>
-                        <input type="file" class="form-control" name="foto_doc" accept="image/png, .jpeg, .jpg, image/gif">
+                        <input type="file" class="form-control-file" name="foto_doc" accept="image/png, .jpeg, .jpg, image/gif" value="{{old('foto_doc')}}">
                         @if ($errors->first('foto_doc'))
                         <p class="text-danger">{{$errors->first('foto_doc')}}</p>
                         @endif

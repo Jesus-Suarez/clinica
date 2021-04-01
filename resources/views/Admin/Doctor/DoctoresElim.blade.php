@@ -50,8 +50,15 @@
                     <tbody>
                         @foreach($doctor as $doc)
                         <tr>
-                            <!-- <td><img src="{{ asset('archivos/'.$doc->foto_doc) }}}" height=50 width=50></td>  -->
                             <td>{{$doc->id_doctor}}</td>
+                            <td>
+                                @if ($doc->foto_doc)
+                                <img src="{{ Storage::url($doc->foto_doc) }}" width="50px" class="img-thumbnail img-responsive" alt="Responsive image">
+                                @else
+
+                                <img src="{{ asset('archivos/Sinfoto.png') }}" width="50px" class="img-thumbnail img-responsive" alt="Responsive image">
+                                @endif
+                            </td>
                             <td>{{$doc->nombre_doc}} {{$doc->ap_pat_doc}} {{$doc->ap_mat_doc}}</td>
                             <td>{{$doc->fecha_nac}}</td>
                             <td>{{$doc->sexo_doc}}</td>

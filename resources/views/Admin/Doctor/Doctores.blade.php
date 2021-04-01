@@ -43,6 +43,7 @@
                 <table class="table table-responsive table-hover table-striped" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                     <thead>
                         <tr role="row">
+                            <th>Clave</th>
                             <th>Foto</th>
                             <th>Nombre</th>
                             <th>Edad</th>
@@ -56,8 +57,14 @@
                     <tbody>
                         @foreach($consulta as $doc)
                         <tr>
-                            <!-- <td><img src="{{ asset('archivos/'.$doc->foto_doc) }}}" height=50 width=50></td>  -->
                             <td>{{$doc->id_doctor}}</td>
+                            <td>
+                                @if ($doc->foto_doc)
+                                <img src="{{ Storage::url($doc->foto_doc) }}" width="50px" class="img-thumbnail img-responsive" alt="Responsive image">
+                                @else
+                                <img src="{{ asset('archivos/Sinfoto.png') }}" width="50px" class="img-thumbnail img-responsive" alt="Responsive image">
+                                @endif
+                            </td>
                             <td>{{$doc->nombre_doc}} {{$doc->ap_pat_doc}} {{$doc->ap_mat_doc}}</td>
                             <td>{{\Carbon\Carbon::parse($doc->fecha_nac)->age}} años</td>
                             <td>

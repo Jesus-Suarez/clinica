@@ -26,7 +26,7 @@ class CreateDoctoresTable extends Migration
             $table->unsignedBigInteger('especialidad_id');
             $table->string('email_doc', 50)->unique();
             $table->string('pass');
-            $table->string('foto_doc', 100)->default('Sinfoto.png');
+            $table->string('foto_doc', 100);
 
             $table->foreign('especialidad_id')->references('especialidad_id')->on('especialidades')
                 ->onUpdate('cascade')

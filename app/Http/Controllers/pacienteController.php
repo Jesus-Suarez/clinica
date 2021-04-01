@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
 use Session;
+use Illuminate\Support\Facades\Storage;
 
 class pacienteController extends Controller
 {
@@ -24,7 +25,7 @@ class pacienteController extends Controller
 
     public function almacenar(Request $request)
     {
-        $this->validate($request, [
+        request()->validate([
             'nombre_pac' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'ap_pat_pac' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'ap_mat_pac' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
@@ -41,7 +42,27 @@ class pacienteController extends Controller
             'foto_pac' => 'mimes:jpeg,png,jpg,gif'
         ]);
 
-        Paciente::create($request->all());
+        if ($request->hasFile('foto_pac')) {
+            $request->foto_pac = $request->file('foto_pac')->store('public'); //hacer el enlace php artisan storage:link
+        }
+
+        $paciente = new Paciente;
+        $paciente->nombre_pac = $request->nombre_pac;
+        $paciente->ap_pat_pac = $request->ap_pat_pac;
+        $paciente->ap_mat_pac = $request->ap_mat_pac;
+        $paciente->sexo_pac = $request->sexo_pac;
+        $paciente->fecha_nac = $request->fecha_nac;
+        $paciente->telefono_pac = $request->telefono_pac;
+        $paciente->estado = $request->estado;
+        $paciente->municipio = $request->municipio;
+        $paciente->cp = $request->cp;
+        $paciente->calle = $request->calle;
+        $paciente->numero = $request->numero;
+        $paciente->email_pac = $request->email_pac;
+        $paciente->pass_pac = $request->pass_pac;
+        $paciente->foto_pac = $request->foto_pac;
+        $paciente->save();
+
 
         Session::flash('message', 'El paciente ' . $request->nombre_pac . ' ' . $request->ap_pat_pac . ' ha sido creado exitosamente!!');
         return redirect()->route('paciente.index');
@@ -75,6 +96,13 @@ class pacienteController extends Controller
         ]);
 
         $paciente = Paciente::find($id);
+
+        if ($request->hasFile('foto_pac')) {
+            Storage::delete($paciente->foto_pac);
+            $request->foto_pac = $request->file('foto_pac')->store('public');
+            $paciente->foto_pac = $request->foto_pac;
+        }
+
         $paciente->nombre_pac = $request->nombre_pac;
         $paciente->ap_pat_pac = $request->ap_pat_pac;
         $paciente->ap_mat_pac = $request->ap_mat_pac;
@@ -88,7 +116,6 @@ class pacienteController extends Controller
         $paciente->numero = $request->numero;
         $paciente->email_pac = $request->email_pac;
         $paciente->pass_pac = $request->pass_pac;
-        //$paciente->foto_pac = $request->foto_pac;
         $paciente->save();
 
         Session::flash('message', 'El paciente ' . $request->nombre_pac . ' ' . $request->ap_pat_pac . ' ha sido modificado exitosamente!!');
@@ -121,8 +148,11 @@ class pacienteController extends Controller
     //Eliminacion fisica
     public function eliminar($id)
     {
-        Paciente::onlyTrashed()->find($id)->forceDelete();
-        Session::flash('message2', 'Paciente eliminacno permanentemente!!');
+        $paciente = Paciente::onlyTrashed()->find($id)->forceDelete();
+
+        Storage::delete($paciente->foto_pac);
+
+        Session::flash('message2', 'Paciente eliminado permanentemente!!');
         return back();
     }
 }

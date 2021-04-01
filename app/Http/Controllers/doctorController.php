@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\doctores;
 use App\Models\especialidades;
 use Session;
+use Illuminate\Support\Facades\Storage;
 
 class doctorController extends Controller
 {
@@ -48,9 +49,13 @@ class doctorController extends Controller
             'especialidad_id' => 'required|integer|not_in:0',
             'email_doc' => 'required|email|unique:doctores,email_doc',
             'pass' => 'required|regex:/^[A-Z,a-z,0-9,á,é,í,ó,ú,ñ]*$/',
-            'foto_doc' => 'required|mimes:jpeg,png,jpg,gif'
+            'foto_doc' => 'mimes:jpeg,png,jpg,gif'
 
         ]);
+
+        if ($request->hasFile('foto_doc')) {
+            $request->foto_doc = $request->file('foto_doc')->store('public'); //hacer el enlace php artisan storage:link
+        }
 
         $doc = new doctores;
         $doc->nombre_doc = $request->nombre_doc;
@@ -62,6 +67,7 @@ class doctorController extends Controller
         $doc->especialidad_id = $request->especialidad_id;
         $doc->email_doc = $request->email_doc;
         $doc->pass = $request->pass;
+        $doc->foto_doc = $request->foto_doc;
         $doc->save();
         Session::flash('message', 'Doctor: ' . $doc->nombre_doc . ' se agrego satisfactoriamente!');
         return redirect()->route('Doctores');
@@ -108,6 +114,13 @@ class doctorController extends Controller
         ]);
 
         $doc = doctores::find($id_doctor);
+
+        if ($request->hasFile('foto_doc')) {
+            Storage::delete($doc->foto_doc);
+            $request->foto_doc = $request->file('foto_doc')->store('public');
+            $doc->foto_doc = $request->foto_doc;
+        }
+
         $doc->nombre_doc = $request->nombre_doc;
         $doc->ap_pat_doc = $request->ap_pat_doc;
         $doc->ap_mat_doc = $request->ap_mat_doc;
@@ -123,39 +136,41 @@ class doctorController extends Controller
     }
     public function desactivarDoctor($id_doctor)
     {
-        $doctor=doctores::find($id_doctor)->delete();
+        $doctor = doctores::find($id_doctor)->delete();
         Session::flash('message3', 'El doctor fue desactivado correctamente!');
         return redirect()->route('Doctores');
     }
 
     public function activarDoctor($id_doctor)
     {
-        $doctor=doctores::onlyTrashed()->where('id_doctor',$id_doctor)->restore();
+        $doctor = doctores::onlyTrashed()->where('id_doctor', $id_doctor)->restore();
         Session::flash('message', 'El doctor fue activado correctamente!');
         return redirect()->route('Doctores');
     }
 
     public function DoctoresElim()
     {
-        $doctor=doctores::onlyTrashed()->get();
+        $doctor = doctores::onlyTrashed()->get();
         return view('Admin.Doctor.DoctoresElim')
-        ->with('doctor',$doctor);
+            ->with('doctor', $doctor);
     }
-  
+
     public function eliminarDoctor($especialidad_id)
     {
-   /*** $buscadoc=doctores::where('especialidad_id',$especialidad_id)->get();
+        /*** $buscadoc=doctores::where('especialidad_id',$especialidad_id)->get();
         $cuantos= count($buscadoc);
         if($cuantos==0){
-    */
-            $doctores=doctores::onlyTrashed()->find($especialidad_id)->forceDelete();
-            Session::flash('message2', 'La especialidad fue eliminada permanentemente!');
-            return redirect()->route('Doctores');
+         */
+        $doctores = doctores::onlyTrashed()->find($especialidad_id)->forceDelete();
+
+        Storage::delete($doctores->foto_doc);
+
+        Session::flash('message2', 'La especialidad fue eliminada permanentemente!');
+        return redirect()->route('Doctores');
         //  }
-       // else{
-       //   Session::flash('message2', 'La especialidad no puede ser eliminada ya que tiene registros en doctores!');
-           // return redirect()->route('EspecialidadesElim');
+        // else{
+        //   Session::flash('message2', 'La especialidad no puede ser eliminada ya que tiene registros en doctores!');
+        // return redirect()->route('EspecialidadesElim');
         //}  
     }
-    
 }
