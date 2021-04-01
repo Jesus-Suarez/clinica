@@ -45,7 +45,7 @@ class consultaController extends Controller
     public function almacenar(Request $request)
     {
         $this->validate($request, [
-            'costo' => 'required|numeric|min:0',
+            'costo' => 'required|regex:/^[0-9]+[.][0-9]{2}$/',
             'id_cita' => 'required|numeric',
             'id_tratamiento' => 'required|numeric',
         ]);
@@ -76,7 +76,7 @@ class consultaController extends Controller
     public function actualizar(Request $request, $id)
     {
         $this->validate($request, [
-            'costo' => 'required|numeric|min:0',
+            'costo' => 'required|regex:/^[0-9]+[.][0-9]{2}$/',
             'id_cita' => 'required|numeric',
             'id_tratamiento' => 'required|numeric',
         ]);

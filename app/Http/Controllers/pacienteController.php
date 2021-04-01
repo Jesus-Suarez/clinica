@@ -31,7 +31,7 @@ class pacienteController extends Controller
             'ap_mat_pac' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'sexo_pac' => 'required',
             'fecha_nac' => 'required',
-            'telefono_pac' => 'required|regex:/^[0-9]{10}$/',
+            'telefono_pac' => 'required|digits:10',
             'estado' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'municipio' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'cp' => 'required|regex:/^[0-9]{5}$/',

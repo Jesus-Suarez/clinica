@@ -43,13 +43,13 @@ class doctorController extends Controller
             'nombre_doc' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'ap_pat_doc' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'ap_mat_doc' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
-            'sexo_doc' => 'required',
+            'sexo_doc' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'fecha_nac' => 'required',
             'telefono_doc' => 'required|regex:/^[0-9]{10}$/',
             'especialidad_id' => 'required|integer|not_in:0',
             'email_doc' => 'required|email|unique:doctores,email_doc',
             'pass' => 'required|regex:/^[A-Z,a-z,0-9,á,é,í,ó,ú,ñ]*$/',
-            'foto_doc' => 'mimes:jpeg,png,jpg,gif'
+            'foto_doc' => 'image'
 
         ]);
 
@@ -109,7 +109,7 @@ class doctorController extends Controller
             'especialidad_id' => 'required|integer|not_in:0',
             'email_doc' => 'required|email',
             'pass' => 'required|regex:/^[A-Z,a-z,0-9,á,é,í,ó,ú,ñ]*$/',
-            'foto_doc' => 'required|mimes:jpeg,png,jpg,gif'
+            'foto_doc' => 'image'
 
         ]);
 

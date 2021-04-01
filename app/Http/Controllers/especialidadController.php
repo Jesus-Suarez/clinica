@@ -25,7 +25,7 @@ class especialidadController extends Controller
     {
 
         $this->validate($request, [
-            'nombre_esp' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
+            'nombre_esp' => 'required|regex:/^[A-Z][a-z,A-Z,0-9, ,á,é,í,ó,ú,ñ]*$/',
         ]);
 
         $esp= new especialidades;
@@ -47,7 +47,7 @@ class especialidadController extends Controller
         $especialidad_id = $request->especialidad_id;
         
         $this->validate($request, [
-            'nombre_esp' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
+            'nombre_esp' => 'required|regex:/^[A-Z][a-z,A-Z,0-9, ,á,é,í,ó,ú,ñ]*$/',
         ]);
 
         $esp= especialidades::find($especialidad_id);

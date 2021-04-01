@@ -44,7 +44,7 @@ class diaController extends Controller
     public function almacenar(Request $request)
     {
         $this->validate($request, [
-            'nombre_dia' => 'required|string',
+            'nombre_dia' => 'required|regex:/^[A-Z][a-z,A-Z]*$/',
             'id_doctor' => 'required|integer',
             'id_horario' => 'required|integer',
         ]);
@@ -71,7 +71,7 @@ class diaController extends Controller
     public function actualizar(Request $request, $id)
     {
         $this->validate($request, [
-            'nombre_dia' => 'required|string',
+            'nombre_dia' => 'required|regex:/^[A-Z][a-z,A-Z]*$/',
             'id_doctor' => 'required|integer',
             'id_horario' => 'required|integer',
         ]);

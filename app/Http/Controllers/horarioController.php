@@ -22,8 +22,8 @@ class horarioController extends Controller
     public function guardaHorario(Request $request)
     {
         $this->validate($request, [
-            'hora_inicio' => 'required',
-            'hora_fin' => 'required',
+            'hora_inicio' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
+            'hora_fin' => 'required|regex:/^[0-1]+[][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
         ]);
 
         $hor = new horarios();

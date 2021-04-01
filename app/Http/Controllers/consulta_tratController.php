@@ -22,10 +22,10 @@ class consulta_tratController extends Controller
 
 
         $this->validate($request, [
-            'id_consulta' => 'required|integer|not_in:0',
-            'id_estudio' => 'required|integer|not_in:0',
-            'id_medicamento' => 'required|integer|not_in:0',
-            'cant_med' => 'required|integer|regex:/^[1-9]{1}$/'
+            'id_consulta' => 'required|integer',
+            'id_estudio' => 'required|integer',
+            'id_medicamento' => 'required|integer',
+            'cant_med' => 'required|integer|max:50|regex:/^[1-9]*$/'
         ]);
 
         echo ("Datos correctos");

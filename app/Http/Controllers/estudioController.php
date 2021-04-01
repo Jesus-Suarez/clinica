@@ -24,8 +24,8 @@ class estudioController extends Controller
     public function almacenar(Request $request)
     {
         $this->validate($request, [
-            'nombre_est' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
-            'descripcion_est' => 'required|min:5|max:255|regex:/^[a-z,A-Z, ,á,é,í,ó,ú,ñ,.,]*$/'
+            'nombre_est' => 'required|regex:/^[A-Z][a-z,A-Z,0-9, ,á,é,í,ó,ú,ñ]*$/',
+            'descripcion_est' => 'required|min:5|max:255|regex:/^[a-z,A-Z,0-9, ,á,é,í,ó,ú,ñ,.,]*$/'
         ]);
 
         Estudio::create($request->all());
@@ -45,8 +45,8 @@ class estudioController extends Controller
     {
 
         $this->validate($request, [
-            'nombre_est' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
-            'descripcion_est' => 'required|min:5|max:255|regex:/^[a-z,A-Z, ,á,é,í,ó,ú,ñ,.,]*$/'
+            'nombre_est' => 'required|regex:/^[A-Z][a-z,A-Z,0-9, ,á,é,í,ó,ú,ñ]*$/',
+            'descripcion_est' => 'required|min:5|max:255|regex:/^[a-z,A-Z,0-9, ,á,é,í,ó,ú,ñ,.,]*$/'
         ]);
 
         $estudio = Estudio::find($id);
