@@ -27,7 +27,6 @@ class doctorController extends Controller
             )
             ->get();
 
-
         return view('Admin.Doctor.Doctores')
             ->with('consulta', $consulta);
     }

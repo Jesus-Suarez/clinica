@@ -1,3 +1,10 @@
+<?php
+$sessionNombre = session('sessionNombre');
+$sessioTipo = session('sessioTipo');
+$sessionIdu = session('sessionIdu');
+$sessionFoto = session('sessionFoto');
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -50,9 +57,11 @@
             </button>
 
             <ul class="nav navbar-nav navbar-left navbar-top-links">
-                <li><a href="{{ asset('index') }}"><i class="fa fa-home fa-fw"></i> Sitio Web</a></li>
+                <li><a href="{{ route('Doctores') }}"><i class="fa fa-home fa-fw"></i> Sitio Web</a></li>
             </ul>
-
+            <ul class="nav navbar-nav navbar-left navbar-top-links">
+                <li><a href="{{ route('Doctores') }}"> Bienvenido <?php echo $sessionNombre ?></a></li>
+            </ul>
             <ul class="nav navbar-right navbar-top-links">
                 <li class="dropdown navbar-inverse">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -110,7 +119,7 @@
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> Jesus Suarez <b class="caret"></b>
+                        <i class="fa fa-user fa-fw"></i> <?php echo $sessionNombre ?><b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> Perfil de Usuario</a>
@@ -118,7 +127,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ajustes</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión</a>
+                        <li><a href="{{ route('login.salir') }}"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión</a>
                         </li>
                     </ul>
                 </li>
@@ -129,8 +138,11 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                            <img src="{{ asset('img/logo.jpg') }}" height="30" width="30" class=" rounded" alt="">
-
+                            @if ($sessionFoto)
+                            <img src="{{ Storage::url($sessionFoto) }}" width="50px" class="img-thumbnail img-responsive" alt="Responsive image">
+                            @else
+                            <img src="{{ asset('archivos/Sinfoto.png') }}" width="50px" class="img-thumbnail img-responsive" alt="Responsive image">
+                            @endif
                         </li>
                         <li>
                             <a href="{{ asset('') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>

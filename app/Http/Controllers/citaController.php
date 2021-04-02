@@ -55,7 +55,6 @@ class citaController extends Controller
 
     public function almacenar(Request $request)
     {
-        return $request->hora;
         $this->validate($request, [
             'fecha_cita' => 'required|date',
             'hora' => 'required',

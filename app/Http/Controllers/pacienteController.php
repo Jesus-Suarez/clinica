@@ -6,6 +6,7 @@ use App\Models\Paciente;
 use Illuminate\Http\Request;
 use Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 class pacienteController extends Controller
 {
@@ -25,7 +26,7 @@ class pacienteController extends Controller
 
     public function almacenar(Request $request)
     {
-        request()->validate([
+        $this->validate($request, [
             'nombre_pac' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'ap_pat_pac' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'ap_mat_pac' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
@@ -45,6 +46,8 @@ class pacienteController extends Controller
         if ($request->hasFile('foto_pac')) {
             $request->foto_pac = $request->file('foto_pac')->store('public'); //hacer el enlace php artisan storage:link
         }
+
+        $request->pass_pac  = Hash::make($request->pass_pac);
 
         $paciente = new Paciente;
         $paciente->nombre_pac = $request->nombre_pac;
