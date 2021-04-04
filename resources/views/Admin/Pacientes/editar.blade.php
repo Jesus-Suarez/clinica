@@ -141,7 +141,7 @@ p @extends('Admin.templeteAdmin')
                     </div>
                     <div class="form-group col-sm-6">
                         <label>Correo electronico</label>
-                        <input type="mail" class="form-control" placeholder="Escribe su correo electronico" name="email_pac" value="{{$paciente->email_pac}}">
+                        <input type="email" class="form-control" placeholder="Escribe su correo electronico" name="email_pac" value="{{$paciente->email_pac}}">
                         @if ($errors->first('email_pac'))
                         <p class="text-danger">{{$errors->first('email_pac')}}</p>
                         @endif

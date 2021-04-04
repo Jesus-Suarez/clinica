@@ -17,6 +17,11 @@
     <div class="panel panel-primary">
         <div class="panel-heading bg-secondary">
 
+            @if (Session::has('message2'))
+            <p class="alert alert-danger">
+                {{Session::get('message2')}}
+            </p>
+            @endif
         </div>
         <div class="panel-body bg-info">
             <form role="form" action="{{route('updateDoctor')}}" method="POST" enctype="multipart/form-data">
@@ -118,18 +123,25 @@
                     </div>
                     <div class="form-group col-sm-6">
                         <label>Correo electronico</label>
-                        <input type="mail" class="form-control" placeholder="Escribe su correo electronico" name="email_doc" value="{{$consulta->email_doc}}">
+                        <input type="email" class="form-control" placeholder="Escribe su correo electronico" name="email_doc" value="{{$consulta->email_doc}}">
                         @if ($errors->first('email_doc'))
                         <p class="text-danger">{{$errors->first('email_doc')}}</p>
                         @endif
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group col-sm-6">
-                        <label>Contraseña</label>
-                        <input type="0" class="form-control" placeholder="Ingresa su contraseña" name="pass" value="{{$consulta->pass}}">
-                        @if ($errors->first('pass'))
-                        <p class="text-danger">{{$errors->first('pass')}}</p>
+                    <div class="form-group col-sm-3">
+                        <label>Escribe la contraseña actual</label>
+                        <input type="password" class="form-control" placeholder="Contraseña actual" name="password_doc" value="{{ old('password_doc') }}">
+                        @if ($errors->first('password_doc'))
+                        <p class="text-danger">{{$errors->first('password_doc')}}</p>
+                        @endif
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label>Escribe la nueva contraseña</label>
+                        <input type="password" class="form-control" placeholder="Nueva contraseña" name="password_doc_new" value="{{ old('password_doc_new') }}">
+                        @if ($errors->first('password_doc_new'))
+                        <p class="text-danger">{{$errors->first('password_doc_new')}}</p>
                         @endif
                     </div>
                     @if ($consulta->foto_doc)

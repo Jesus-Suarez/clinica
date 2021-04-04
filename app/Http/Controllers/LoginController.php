@@ -66,14 +66,10 @@ class LoginController extends Controller
 
         if ($cuantos == 1 and Hash::check($request->password, $consulta[0]->password)) {
             //Login exitoso
-
             Session::put('sessionNombre', $consulta[0]->nombre . ' ' . $consulta[0]->apellido);
             Session::put('sessionTipo', $consulta[0]->tipo);
             Session::put('sessionIdu', $consulta[0]->idu);
             Session::put('sessionFoto', $consulta[0]->foto);
-
-
-
             return redirect()->route('Doctores');
         } else {
             Session::flash('message', 'Error, usuario o contraseña incorrecto.');

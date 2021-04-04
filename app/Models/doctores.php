@@ -22,7 +22,7 @@ class doctores extends Model
         'telefono_doc',
         'especialidad_id',
         'email_doc',
-        'pass',
+        'password_doc',
         'foto_doc'
     ];
     protected $dates = ['deleted_at'];

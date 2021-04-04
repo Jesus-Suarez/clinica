@@ -126,7 +126,7 @@
                      </div>
                      <div class="form-group col-sm-6">
                          <label>Correo electronico</label>
-                         <input type="mail" class="form-control" placeholder="Escribe su correo electronico" name="email_pac" value="{{old('email_pac')}}">
+                         <input type="email" class="form-control" placeholder="Escribe su correo electronico" name="email_pac" value="{{old('email_pac')}}">
                          @error('email_pac')
                          <p class="text-danger">{{$message}}</p>
                          @enderror
@@ -138,13 +138,6 @@
                          <label>Foto</label>
                          <input type="file" class="form-control-file" name="foto_pac" accept="image/png, .jpeg, .jpg, image/gif" value="{{ old('foto_pac') }}">
                          @error('foto_pac')
-                         <p class="text-danger">{{$message}}</p>
-                         @enderror
-                     </div>
-                     <div class="form-group col-sm-6">
-                         <label>Contraseña</label>
-                         <input type="password" class="form-control" placeholder="Ingresa su contraseña" name="pass_pac" value="{{old('pass_pac')}}">
-                         @error('pass_pac')
                          <p class="text-danger">{{$message}}</p>
                          @enderror
                      </div>

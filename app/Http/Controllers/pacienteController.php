@@ -6,7 +6,6 @@ use App\Models\Paciente;
 use Illuminate\Http\Request;
 use Session;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Hash;
 
 class pacienteController extends Controller
 {
@@ -39,15 +38,12 @@ class pacienteController extends Controller
             'calle' => 'required|regex:/^[0-9,a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'numero' => 'required|regex:/^[0-9,a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'email_pac' => 'required|email|unique:pacientes',
-            'pass_pac' => 'required|regex:/^[A-Z,a-z,0-9,á,é,í,ó,ú,ñ]*$/',
             'foto_pac' => 'mimes:jpeg,png,jpg,gif'
         ]);
 
         if ($request->hasFile('foto_pac')) {
             $request->foto_pac = $request->file('foto_pac')->store('public'); //hacer el enlace php artisan storage:link
         }
-
-        $request->pass_pac  = Hash::make($request->pass_pac);
 
         $paciente = new Paciente;
         $paciente->nombre_pac = $request->nombre_pac;
@@ -62,10 +58,8 @@ class pacienteController extends Controller
         $paciente->calle = $request->calle;
         $paciente->numero = $request->numero;
         $paciente->email_pac = $request->email_pac;
-        $paciente->pass_pac = $request->pass_pac;
         $paciente->foto_pac = $request->foto_pac;
         $paciente->save();
-
 
         Session::flash('message', 'El paciente ' . $request->nombre_pac . ' ' . $request->ap_pat_pac . ' ha sido creado exitosamente!!');
         return redirect()->route('paciente.index');
@@ -94,7 +88,6 @@ class pacienteController extends Controller
             'calle' => 'required|regex:/^[0-9,a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'numero' => 'required|regex:/^[0-9,a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'email_pac' => 'required|email',
-            'pass_pac' => 'required|regex:/^[A-Z,a-z,0-9,á,é,í,ó,ú,ñ]*$/',
             'foto_pac' => 'mimes:jpeg,png,jpg,gif'
         ]);
 
@@ -118,7 +111,6 @@ class pacienteController extends Controller
         $paciente->calle = $request->calle;
         $paciente->numero = $request->numero;
         $paciente->email_pac = $request->email_pac;
-        $paciente->pass_pac = $request->pass_pac;
         $paciente->save();
 
         Session::flash('message', 'El paciente ' . $request->nombre_pac . ' ' . $request->ap_pat_pac . ' ha sido modificado exitosamente!!');

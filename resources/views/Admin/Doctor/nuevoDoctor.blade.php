@@ -103,7 +103,7 @@
                     </div>
                     <div class="form-group col-sm-6">
                         <label>Correo electronico</label>
-                        <input type="mail" class="form-control" placeholder="Escribe su correo electronico" name="email_doc" value="{{old('email_doc')}}">
+                        <input type="email" class="form-control" placeholder="Escribe su correo electronico" name="email_doc" value="{{old('email_doc')}}">
                         @if ($errors->first('email_doc'))
                         <p class="text-danger">{{$errors->first('email_doc')}}</p>
                         @endif
@@ -112,9 +112,9 @@
                 <div class="row">
                     <div class="form-group col-sm-6">
                         <label>Contraseña</label>
-                        <input type="password" class="form-control" placeholder="Ingresa su contraseña" name="pass" value="{{old('pass')}}">
-                        @if ($errors->first('pass'))
-                        <p class="text-danger">{{$errors->first('pass')}}</p>
+                        <input type="password" class="form-control" placeholder="Ingresa su contraseña" name="password_doc" value="{{old('password_doc')}}">
+                        @if ($errors->first('password_doc'))
+                        <p class="text-danger">{{$errors->first('password_doc')}}</p>
                         @endif
                     </div>
                     <div class="form-group col-sm-6">
