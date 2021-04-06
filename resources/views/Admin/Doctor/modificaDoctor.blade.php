@@ -102,24 +102,18 @@
                     <div class="form-group col-sm-6">
                         <label>Especialidad</label>
 
-                        <select class="form-control" name="especialidad_id"">
-                            <option value=" {{$consulta->especialidad_id}}">{{$consulta->espec}} </option>
+                        <select class="form-control" name="especialidad_id">
                             @foreach($especialidades as $esp)
-                            @if($consulta->especialidad_id != $esp->especialidad_id)
-                            <option value="{{$esp->especialidad_id}}">{{$esp->nombre_esp}} </option>
+                            @if($consulta->especialidad_id == $esp->especialidad_id)
+                            <option value='{{$consulta->especialidad_id}}' selected> {{$esp->nombre_esp}} </option>
+                            @else
+                            <option value='{{$esp->especialidad_id}}'> {{$esp->nombre_esp}} </option>
                             @endif
                             @endforeach
-                            <!-- /.col-lg-12 
-                            <option value=" 1" {{ old('especialidad_id') == 1 ? 'selected' : '' }}>Dermatologo</option>
-                            <option value="2" {{ old('especialidad_id') == 2 ? 'selected' : '' }}>Cirujano</option>
-                            <option value="3" {{ old('especialidad_id') == 3 ? 'selected' : '' }}>Ginecologo</option>
-                            <option value="4" {{ old('especialidad_id') == 4 ? 'selected' : '' }}>Cardiologo</option>
-                            -->
                         </select>
                         @if ($errors->first('especialidad_id'))
-                        <p class="text-danger">{{$errors->first('especialidad_id')}}</p>
+                        <p class=" text-danger">{{$errors->first('especialidad_id')}}</p>
                         @endif
-
                     </div>
                     <div class="form-group col-sm-6">
                         <label>Correo electronico</label>

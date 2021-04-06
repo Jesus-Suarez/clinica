@@ -18,7 +18,7 @@
         <div class="panel-heading bg-secondary">
         </div>
         <div class="panel-body bg-info">
-            <form role="form" action="{{route('guardarEspecialidad')}}" method="POST">
+            <form role="form" action="{{route('guardaEspecialidad')}}" method="POST">
                 {{csrf_field()}}
                 <div class="row">
                     <div class="form-group col-sm-6">

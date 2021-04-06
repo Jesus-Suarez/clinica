@@ -30,7 +30,7 @@ class LoginController extends Controller
         $consulta = Paciente::select(
             'id_paciente as idu',
             'email_pac as email',
-            'pass_pac as password',
+            'password_pac as password',
             'nombre_pac as nombre',
             'ap_pat_pac as apellido',
             'foto_pac as foto'
@@ -50,26 +50,27 @@ class LoginController extends Controller
             $consulta = doctores::select(
                 'id_doctor as idu',
                 'email_doc as email',
-                'pass as password',
+                'password_doc as password',
                 'nombre_doc as nombre',
                 'ap_pat_doc as apellido',
-                'foto_doc as foto'
+                'foto_doc as foto',
+                'tipo'
             )
                 ->where('email_doc', $request->email)
                 ->where('deleted_at', '=', (NULL))
                 ->get();
 
-            $consulta[0]->tipo = 'doctor';
-
             $cuantos = count($consulta);
         }
 
+        //return Hash::check($request->password, $consulta[0]->password);
+
         if ($cuantos == 1 and Hash::check($request->password, $consulta[0]->password)) {
-            //Login exitoso
             Session::put('sessionNombre', $consulta[0]->nombre . ' ' . $consulta[0]->apellido);
             Session::put('sessionTipo', $consulta[0]->tipo);
             Session::put('sessionIdu', $consulta[0]->idu);
             Session::put('sessionFoto', $consulta[0]->foto);
+            //return gettype($consulta[0]->foto);
             return redirect()->route('Doctores');
         } else {
             Session::flash('message', 'Error, usuario o contraseña incorrecto.');

@@ -161,11 +161,19 @@ p @extends('Admin.templeteAdmin')
                         <p class="text-danger">{{$errors->first('foto_pac')}}</p>
                         @endif
                     </div>
-                    <div class="form-group col-sm-6">
-                        <label>Contraseña</label>
-                        <input type="password" class="form-control" placeholder="Ingresa su contraseña" name="pass_pac" value="password">
-                        @if ($errors->first('password'))
-                        <p class="text-danger">{{$errors->first('pass_pac')}}</p>
+
+                    <div class="form-group col-sm-3">
+                        <label>Escribe la contraseña actual</label>
+                        <input type="password" class="form-control" placeholder="Contraseña actual" name="password_pac" value="{{ old('password_pac') }}">
+                        @if ($errors->first('password_pac'))
+                        <p class="text-danger">{{$errors->first('password_pac')}}</p>
+                        @endif
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label>Escribe la nueva contraseña</label>
+                        <input type="password" class="form-control" placeholder="Nueva contraseña" name="password_pac_new" value="{{ old('password_pac_new') }}">
+                        @if ($errors->first('password_pac_new'))
+                        <p class="text-danger">{{$errors->first('password_pac_new')}}</p>
                         @endif
                     </div>
                 </div>

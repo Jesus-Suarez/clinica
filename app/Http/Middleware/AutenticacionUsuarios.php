@@ -20,10 +20,8 @@ class AutenticacionUsuarios
         $sessionNombre = Session::get('sessionNombre');
         $sessionIdu = Session::get('sessionIdu');
         $sessionTipo = Session::get('sessionTipo');
-        $sessionFoto = Session::get('sessionFoto');
 
-
-        if ($sessionNombre == '' or $sessionIdu == '' or $sessionTipo == '' or $sessionFoto == '') {
+        if ($sessionNombre == '' or $sessionIdu == '' or $sessionTipo == '') {
             Session::flash('message', 'Debes loguearte amigo!!!');
             return redirect()->route('login');
         }
