@@ -34,9 +34,9 @@ Route::post('/acceder', [LoginController::class, 'acceder'])->name('login.accede
 
 Route::get('templete', [principalAdminController::class, 'templete']);
 
-Route::group(
-    ['middleware' => ['loginEntrar']],
-    function () {
+//Route::group(
+ //   ['middleware' => ['loginEntrar']],
+   // function () {
 
         Route::get('Doctores', [doctorController::class, 'Doctores'])->name('Doctores');
         Route::get('nuevoDoctor', [doctorController::class, 'nuevoDoctor']);
@@ -154,5 +154,5 @@ Route::group(
 
         //Cerra sesion
         Route::get('salir', [LoginController::class, 'salir'])->name('login.salir');
-    }
-);
+  //  }
+//);

@@ -27,15 +27,15 @@ class LoginController extends Controller
             'password' => 'required|regex:/^[A-Z,a-z,0-9,á,é,í,ó,ú,ñ]*$/',
         ]);
 
-        $consulta = Paciente::select(
-            'id_paciente as idu',
-            'email_pac as email',
-            'pass_pac as password',
-            'nombre_pac as nombre',
-            'ap_pat_pac as apellido',
-            'foto_pac as foto'
+        $consulta = doctores::select(
+            'id_doctor as idu',
+            'email_doc as email',
+            'password_doc as password',
+            'nombre_doc as nombre',
+            'ap_pat_doc as apellido',
+            'foto_doc as foto'
         )
-            ->where('email_pac', $request->email)
+            ->where('email_doc', $request->email)
             ->where('deleted_at', '=', (NULL))
             ->get();
 
@@ -47,17 +47,20 @@ class LoginController extends Controller
 
         //Consultamos en la siguiente tabla
         if ($cuantos == 0) {
-            $consulta = doctores::select(
-                'id_doctor as idu',
-                'email_doc as email',
-                'pass as password',
-                'nombre_doc as nombre',
-                'ap_pat_doc as apellido',
-                'foto_doc as foto'
+
+            $consulta = Paciente::select(
+                'id_paciente as idu',
+                'email_pac as email',
+                'pass_pac as password',
+                'nombre_pac as nombre',
+                'ap_pat_pac as apellido',
+                'foto_pac as foto'
             )
-                ->where('email_doc', $request->email)
+                ->where('email_pac', $request->email)
                 ->where('deleted_at', '=', (NULL))
                 ->get();
+
+           
 
             $consulta[0]->tipo = 'doctor';
 
