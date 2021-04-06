@@ -42,7 +42,7 @@ class LoginController extends Controller
             Session::put('sessionTipo', $consulta[0]->tipo);
             Session::put('sessionIdu', $consulta[0]->idu);
             Session::put('sessionFoto', $consulta[0]->foto);
-            //return gettype($consulta[0]->foto);
+            //returgit statusn gettype($consulta[0]->foto);
             return redirect()->route('Doctores');
         } else {
             Session::flash('message', 'Error, usuario o contraseña incorrecto.');
