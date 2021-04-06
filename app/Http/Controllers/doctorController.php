@@ -57,8 +57,6 @@ class doctorController extends Controller
             $request->foto_doc = $request->file('foto_doc')->store('public'); //hacer el enlace php artisan storage:link
         }
 
-        $request->password_doc  = Hash::make($request->password_doc);
-
         $doc = new doctores;
         $doc->nombre_doc = $request->nombre_doc;
         $doc->ap_pat_doc = $request->ap_pat_doc;
@@ -68,7 +66,7 @@ class doctorController extends Controller
         $doc->telefono_doc = $request->telefono_doc;
         $doc->especialidad_id = $request->especialidad_id;
         $doc->email_doc = $request->email_doc;
-        $doc->password_doc = $request->password_doc;
+        $doc->password_doc  = Hash::make($request->password_doc);
         $doc->foto_doc = $request->foto_doc;
         $doc->save();
         Session::flash('message', 'Doctor: ' . $doc->nombre_doc . ' se agrego satisfactoriamente!');
@@ -169,20 +167,12 @@ class doctorController extends Controller
 
     public function eliminarDoctor($especialidad_id)
     {
-        /*** $buscadoc=doctores::where('especialidad_id',$especialidad_id)->get();
-        $cuantos= count($buscadoc);
-        if($cuantos==0){
-         */
-        $doctores = doctores::onlyTrashed()->find($especialidad_id)->forceDelete();
+        $doctor = doctores::onlyTrashed()->find($especialidad_id);
 
-        Storage::delete($doctores->foto_doc);
+        Storage::delete($doctor->foto_doc);
+        doctores::onlyTrashed()->find($especialidad_id)->forceDelete();
 
         Session::flash('message2', 'La especialidad fue eliminada permanentemente!');
         return redirect()->route('Doctores');
-        //  }
-        // else{
-        //   Session::flash('message2', 'La especialidad no puede ser eliminada ya que tiene registros en doctores!');
-        // return redirect()->route('EspecialidadesElim');
-        //}  
     }
 }

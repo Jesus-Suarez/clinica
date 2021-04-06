@@ -141,6 +141,13 @@
                          <p class="text-danger">{{$message}}</p>
                          @enderror
                      </div>
+                     <div class="form-group col-sm-6">
+                         <label>Contraseña</label>
+                         <input type="password" class="form-control" placeholder="Ingresa su contraseña" name="password_pac" value="{{old('password_pac')}}">
+                         @if ($errors->first('password_pac'))
+                         <p class="text-danger">{{$errors->first('password_pac')}}</p>
+                         @endif
+                     </div>
                  </div>
                  <div class="row">
                      <div class="col-sm-2">

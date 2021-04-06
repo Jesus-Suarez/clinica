@@ -21,7 +21,7 @@ class especialidadController extends Controller
         return view('Admin.Especialidades.nuevaEspecialidad');
     }
 
-    public function guardarEspecialidad(Request $request)
+    public function guardaEspecialidad(Request $request)
     {
 
         $this->validate($request, [

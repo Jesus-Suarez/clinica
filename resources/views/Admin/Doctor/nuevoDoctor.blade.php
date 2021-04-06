@@ -87,14 +87,8 @@
                         <select class="form-control" name="especialidad_id">
                             <option selected="">--- Elija una especialidad ---</option>
                             @foreach($especialidad as $esp)
-                            <option value=" {{$esp->especialidad_id}}">{{$esp->nombre_esp}} </option>
+                            <option value=" {{$esp->especialidad_id}}" @if(old('especialidad_id')==$esp->especialidad_id ) {{'selected'}} @endif>{{$esp->nombre_esp}} </option>
                             @endforeach
-                            <!-- /.col-lg-12 
-                            <option value=" 1" {{ old('especialidad_id') == 1 ? 'selected' : '' }}>Dermatologo</option>
-                            <option value="2" {{ old('especialidad_id') == 2 ? 'selected' : '' }}>Cirujano</option>
-                            <option value="3" {{ old('especialidad_id') == 3 ? 'selected' : '' }}>Ginecologo</option>
-                            <option value="4" {{ old('especialidad_id') == 4 ? 'selected' : '' }}>Cardiologo</option>
-                            -->
                         </select>
                         @if ($errors->first('especialidad_id'))
                         <p class="text-danger">{{$errors->first('especialidad_id')}}</p>

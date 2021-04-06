@@ -20,6 +20,7 @@ class Paciente extends Model
         'sexo_pac',
         'telefono_pac',
         'email_pac',
+        'password_pac',
         'foto_pac',
         'estado',
         'municipio',

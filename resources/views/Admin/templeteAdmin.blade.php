@@ -138,11 +138,14 @@ $sessionFoto = session('sessionFoto');
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                            @if ($sessionFoto)
+                            @isset($sessionFoto)
                             <img src="{{ Storage::url($sessionFoto) }}" width="50px" class="img-thumbnail img-responsive" alt="Responsive image">
-                            @else
+                            @endisset
+
+                            @empty($sessionFoto)
                             <img src="{{ asset('archivos/Sinfoto.png') }}" width="50px" class="img-thumbnail img-responsive" alt="Responsive image">
-                            @endif
+                            @endempty
+
                         </li>
                         <li>
                             <a href="{{ asset('') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>

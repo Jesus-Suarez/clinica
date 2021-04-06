@@ -20,6 +20,7 @@ class doctores extends Model
         'sexo_doc',
         'fecha_nac',
         'telefono_doc',
+        'tipo',
         'especialidad_id',
         'email_doc',
         'password_doc',
