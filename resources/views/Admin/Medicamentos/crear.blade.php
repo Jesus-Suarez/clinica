@@ -46,6 +46,14 @@
                         @enderror
                     </div>
 
+                    <div class="form-group col-sm-6">
+                        <label>Foto</label>
+                        <input type="file" class="form-control-file" name="foto_med" accept="image/png, .jpeg, .jpg, image/gif" value="{{old('foto_med')}}">
+                        @if ($errors->first('foto_med'))
+                        <p class="text-danger">{{$errors->first('foto_med')}}</p>
+                        @endif
+                    </div>
+
                 </div>
 
                 <div class="row">

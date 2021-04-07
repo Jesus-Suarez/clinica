@@ -19,20 +19,20 @@
 
         </div>
         <div class="panel-body bg-info">
-            <form action="{{route('medicamento.actualizar', $medicamento->id_medicamento)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('medicamento.actualizar', $consulta->id_medicamento)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row">
                     <div class="form-group col-sm-6">
                         <label>Nombre del medicamento</label>
-                        <input type="text" class="form-control" placeholder="Ingresa el nombre del médico" name="nombre_med" value="{{$medicamento->nombre_med}}">
+                        <input type="text" class="form-control" placeholder="Ingresa el nombre del médico" name="nombre_med" value="{{$consulta->nombre_med}}">
                         @error ('nombre_med')
                         <p class="text-danger">{{$message}}</p>
                         @enderror
                     </div>
                     <div class="form-group col-sm-6">
                         <label>Cantidad disponible</label>
-                        <input type="number" class="form-control" placeholder="Registra stock (-máx 5000)" name="cant_disp" value="{{$medicamento->cant_disp}}">
+                        <input type="number" class="form-control" placeholder="Registra stock (-máx 5000)" name="cant_disp" value="{{$consulta->cant_disp}}">
                         @error ('cant_disp')
                         <p class="text-danger">{{$message}}</p>
                         @enderror
@@ -41,10 +41,23 @@
                 <div class="row">
                     <div class="form-group col-sm-6">
                         <label>Costo</label>
-                        <input type="number" class="form-control" placeholder="Ingresa el costo del medicamento" name="costo" value="{{$medicamento->costo}}" step="0.01">
+                        <input type="number" class="form-control" placeholder="Ingresa el costo del medicamento" name="costo" value="{{$consulta->costo}}" step="0.01">
                         @error ('costo')
                         <p class="text-danger">{{$message}}</p>
                         @enderror
+                    </div>
+
+                    @if ($consulta->foto_med)
+                    <div class="form-group col-sm-3">
+                        <img src="{{ Storage::url($consulta->foto_med) }}" class="img-thumbnail img-responsive" alt="Responsive image">
+                    </div>
+                    @endif
+                    <div class="form-group col-sm-3">
+                        <label>Foto</label>
+                        <input type="file" class="form-control-file" name="foto_med" accept="image/png, .jpeg, .jpg, image/gif">
+                        @if ($errors->first('foto_med'))
+                        <p class="text-danger">{{$errors->first('foto_med')}}</p>
+                        @endif
                     </div>
 
                 </div>

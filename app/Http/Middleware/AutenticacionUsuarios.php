@@ -22,7 +22,7 @@ class AutenticacionUsuarios
         $sessionTipo = Session::get('sessionTipo');
 
         if ($sessionNombre == '' or $sessionIdu == '' or $sessionTipo == '') {
-            Session::flash('message', 'Debes loguearte amigo!!!');
+            Session::flash('message', 'Es necesario iniciar sesion primero!.');
             return redirect()->route('login');
         }
         return $next($request);

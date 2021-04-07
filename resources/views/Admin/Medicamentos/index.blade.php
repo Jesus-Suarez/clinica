@@ -44,6 +44,7 @@
                     <thead>
                         <tr role="row">
                             <th>Clave</th>
+                            <th>Foto</th>
                             <th>Nombre</th>
                             <th>Stock</th>
                             <th>Costo</th>
@@ -54,7 +55,14 @@
                         @forelse($medicamentos as $medicamento)
                         <tr>
                             <td>{{$medicamento->id_medicamento}}</td>
-                            <td>{{$medicamento->nombre_med}}</td>
+                            <td>
+                                @if ($medicamento->foto_med)
+                                <img src="{{ Storage::url($medicamento->foto_med) }}" width="50px" class="img-thumbnail img-responsive" alt="Responsive image">
+                                @else
+                                <img src="{{ asset('archivos/Sinfoto.png') }}" width="50px" class="img-thumbnail img-responsive" alt="Responsive image">
+                                @endif
+                            </td>
+                            <td>{{$medicamento->nombre_med}}</td> 
                             <td>{{$medicamento->cant_disp}}</td>
                             <td>{{$medicamento->costo}}</td>
                             <td>
@@ -72,7 +80,7 @@
                         </tr>
                         @empty
                         <td colspan="5">
-                            <center>No hay pacientes para mostrar</center>
+                            <center>No hay medicamentos para mostrar</center>
                         </td>
                         @endforelse
                         </form>

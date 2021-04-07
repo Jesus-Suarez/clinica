@@ -15,6 +15,7 @@ class Medicamento extends Model
     protected $fillable = [
         'nombre_med',
         'cant_disp',
-        'costo'
+        'costo',
+        'foto_med'
     ];
 }

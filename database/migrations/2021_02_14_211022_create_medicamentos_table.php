@@ -21,6 +21,7 @@ class CreateMedicamentosTable extends Migration
                 ->unsigned()
                 ->comment('Cantidad de medicamentos disponibles'); /* solo permite numeros enteros sin signo */
             $table->float('costo');
+            $table->string('foto_med', 250);
 
             $table->softDeletes();
             $table->timestamps();
