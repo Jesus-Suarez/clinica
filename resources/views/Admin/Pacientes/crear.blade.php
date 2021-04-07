@@ -49,7 +49,7 @@
                          <label>Sexo</label>
                          <div class="radio">
                              <label>
-                                 <input type="radio" name="sexo_pac" value="H" {{ (old('sexo_pac') == "H") ? "checked" : "" }} checked>Masculino
+                                 <input type="radio" name="sexo_pac" value="F" {{ (old('sexo_pac') == "F") ? "checked" : "" }} checked>Masculino
                              </label>
                          </div>
                          <div class="radio">
