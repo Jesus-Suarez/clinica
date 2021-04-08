@@ -44,6 +44,7 @@
                     <thead>
                         <tr role="row">
                             <th>Clave</th>
+                            <th>Imagen</th>
                             <th>Nombre</th>
                             <th>Stock</th>
                             <th>Costo</th>
@@ -54,9 +55,16 @@
                         @forelse($medicamentos as $medicamento)
                         <tr>
                             <td>{{$medicamento->id_medicamento}}</td>
+                            <td>
+                                @if ($medicamento->foto_med)
+                                <img src="{{ Storage::url($medicamento->foto_med) }}" width="50px" class="img-thumbnail img-responsive" alt="Responsive image">
+                                @else
+                                <img src="{{ asset('archivos/Sinfoto.png') }}" width="50px" class="img-thumbnail img-responsive" alt="Responsive image">
+                                @endif
+                            </td>
                             <td>{{$medicamento->nombre_med}}</td>
                             <td>{{$medicamento->cant_disp}}</td>
-                            <td>{{$medicamento->costo}}</td>
+                            <td>$ {{$medicamento->costo}}</td>
                             <td>
                                 <a class="btn btn-primary" href="{{ route('medicamento.editar', $medicamento) }}" title="Editar">
                                     <i class="fa fa-edit"></i>

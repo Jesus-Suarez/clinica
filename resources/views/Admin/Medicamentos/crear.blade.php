@@ -45,7 +45,14 @@
                         <p class="text-danger">{{$message}}</p>
                         @enderror
                     </div>
+                </div>
 
+                <div class="form-group col-sm-6">
+                    <label>Foto</label>
+                    <input type="file" class="form-control-file" name="foto_med" accept="image/png, .jpeg, .jpg, image/gif" value="{{old('foto_med')}}">
+                    @error ('foto_med')
+                    <p class="text-danger">{{$message}}</p>
+                    @enderror
                 </div>
 
                 <div class="row">

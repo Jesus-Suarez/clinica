@@ -52,7 +52,7 @@
                             <td>{{$medicamento->id_medicamento}}</td>
                             <td>{{$medicamento->nombre_med}}</td>
                             <td>{{$medicamento->cant_disp}}</td>
-                            <td>{{$medicamento->costo}}</td>
+                            <td>$ {{$medicamento->costo}}</td>
                             <td>
                                 <a href="{{ route('medicamento.activar', $medicamento->id_medicamento) }}" class="btn btn-warning" title="Activar"><i class="fa fa-retweet"></i></a>
                             </td>

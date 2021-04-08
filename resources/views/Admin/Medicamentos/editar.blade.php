@@ -46,7 +46,19 @@
                         <p class="text-danger">{{$message}}</p>
                         @enderror
                     </div>
+                </div>
 
+                @if ($medicamento->foto_med)
+                <div class="form-group col-sm-3">
+                    <img src="{{ Storage::url($medicamento->foto_med) }}" class="img-thumbnail img-responsive" alt="Responsive image">
+                </div>
+                @endif
+                <div class="form-group col-sm-3">
+                    <label>Foto</label>
+                    <input type="file" class="form-control-file" name="foto_med" accept="image/png, .jpeg, .jpg, image/gif">
+                    @error ('foto_med')
+                    <p class="text-danger">{{$message}}</p>
+                    @enderror
                 </div>
 
                 <div class="row">

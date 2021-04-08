@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Medicamento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Session;
 
 class medicamentoController extends Controller
@@ -27,10 +28,20 @@ class medicamentoController extends Controller
         $this->validate($request, [
             'nombre_med' => 'required|regex:/^[A-Z][a-z,A-Z, ,á,é,í,ó,ú,ñ]*$/',
             'cant_disp' => 'required|integer|numeric|between:0,5000',
-            'costo' => 'required|between:0,9999.99'
+            'costo' => 'required|between:0,9999.99',
+            'foto_med' => 'image'
         ]);
 
-        Medicamento::create($request->all());
+        $med = new Medicamento;
+
+        if ($request->hasFile('foto_med')) {
+            $med->foto_med = $request->file('foto_med')->store('public'); //hacer el enlace php artisan storage:link
+        }
+
+        $med->nombre_med = $request->nombre_med;
+        $med->cant_disp = $request->cant_disp;
+        $med->costo = $request->costo;
+        $med->save();
 
         Session::flash('message', 'El medicamento ' . $request->nombre_med . ' ha sido creado exitosamente!!');
         return redirect()->route('medicamento.index');
@@ -52,6 +63,13 @@ class medicamentoController extends Controller
         ]);
 
         $med = Medicamento::find($id);
+
+        if ($request->hasFile('foto_med')) {
+            Storage::delete($med->foto_med);
+            $request->foto_med = $request->file('foto_med')->store('public');
+            $med->foto_med = $request->foto_med;
+        }
+
         $med->nombre_med = $request->nombre_med;
         $med->cant_disp = $request->cant_disp;
         $med->costo = $request->costo;
@@ -76,7 +94,7 @@ class medicamentoController extends Controller
         return back();
     }
 
-    //Index de eliminacion logicas
+    //Index de eliminacion logica
     public function desactivados()
     {
         return view('Admin.Medicamentos.desactivados', [
@@ -87,6 +105,8 @@ class medicamentoController extends Controller
     //Eliminacion fisica
     public function eliminar($id)
     {
+        $medicamento = Medicamento::onlyTrashed()->find($id);
+        Storage::delete($medicamento->foto_med);
         Medicamento::onlyTrashed()->find($id)->forceDelete();
         Session::flash('message2', 'Medicamento eliminado permanentemente!!');
         return back();
