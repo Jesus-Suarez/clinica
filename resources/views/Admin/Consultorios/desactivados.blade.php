@@ -2,6 +2,9 @@
 @section('titulo') Consultorios desactivados @endsection
 
 @section('contenido_admin')
+<?php
+$sessionTipo = session('sessionTipo');
+?>
 
 <!-- Reporte de usuarios -->
 <br><br><br><br>
@@ -52,6 +55,7 @@
                             <td>
                                 <a href="{{ route('consultorio.activar', $consultorio->id_consultorio) }}" class="btn btn-warning" title="Activar"><i class="fa fa-retweet"></i></a>
                             </td>
+                            @if ($sessionTipo == 'admin')
                             <td>
                                 <form method="POST" action="{{ route('consultorio.eliminar', $consultorio->id_consultorio) }}">
                                     @csrf
@@ -59,6 +63,7 @@
                                     <button class=" btn btn-danger" title="Eliminar"><i class="fa fa-trash"></i></button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
 

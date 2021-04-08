@@ -2,7 +2,9 @@
 @section('titulo') Citas @endsection
 
 @section('contenido_admin')
-
+<?php
+$sessionTipo = session('sessionTipo');
+?>
 <!-- Reporte de usuarios -->
 <br><br><br><br>
 <div class="panel shadow mb-4">
@@ -15,11 +17,12 @@
             <a href="{{ route('cita.crear') }}" class="btn btn-primary btn-circle btn-lg" title="Dar de alta nueva cita">
                 <i class="fa fa-list fa-file"></i>
             </a><span class="text-primary"></span>
-
+            @if ($sessionTipo == 'admin')
             <a href="{{ route('cita.desactivados') }}" class="btn btn-warning pull-right">
                 <i class="fa fa-list fa-rotate-left"></i>
                 <span class="text">Restaurar registros</span>
             </a>
+            @endif
         </nav>
     </div>
     <div class="panel-body">

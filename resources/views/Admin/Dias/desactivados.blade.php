@@ -3,6 +3,9 @@
 
 @section('contenido_admin')
 
+<?php
+$sessionTipo = session('sessionTipo');
+?>
 <!-- Reporte de usuarios -->
 <br><br><br><br>
 <div class="panel shadow mb-4">
@@ -55,6 +58,7 @@
                             <td>
                                 <a href="{{ route('dia.activar', $dia->id_dia) }}" class="btn btn-warning" title="Activar"><i class="fa fa-retweet"></i></a>
                             </td>
+                            @if ($sessionTipo == 'admin')
                             <td>
                                 <form method="POST" action="{{ route('dia.eliminar', $dia->id_dia) }}">
                                     @csrf
@@ -62,6 +66,7 @@
                                     <button class=" btn btn-danger" title="Eliminar"><i class="fa fa-trash"></i></button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
 

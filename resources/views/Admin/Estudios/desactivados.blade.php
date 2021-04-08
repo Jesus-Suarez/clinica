@@ -2,7 +2,9 @@
 @section('titulo') Estudios @endsection
 
 @section('contenido_admin')
-
+<?php
+$sessionTipo = session('sessionTipo');
+?>
 <!-- Reporte de usuarios -->
 <br><br><br><br>
 <div class="panel shadow mb-4">
@@ -55,15 +57,15 @@
                                     <i class="fa fa-retweet"></i>
                                 </a>
                             </td>
+                            @if ($sessionTipo == 'admin')
                             <td>
-
                                 <form method="POST" action="{{ route('estudio.eliminar', $estudio->id_estudio) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button class=" btn btn-danger" title="Eliminar"><i class="fa fa-trash"></i></button>
                                 </form>
-
                             </td>
+                            @endif
                         </tr>
                         @empty
 

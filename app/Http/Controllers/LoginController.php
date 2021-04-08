@@ -80,10 +80,10 @@ class LoginController extends Controller
 
     public function salir()
     {
-        Session::forget('sessionusuario');
-        Session::forget('sessiontipo');
-        Session::forget('sessionidu');
-        Session::forget('sessionfoto');
+        Session::forget('sessionNombre');
+        Session::forget('sessionTipo');
+        Session::forget('sessionIdu');
+        Session::forget('sessionFoto');
         Session::flush();
 
         Session::flash('mesagge', 'Sesión cerrada');

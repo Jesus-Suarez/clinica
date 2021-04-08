@@ -2,7 +2,9 @@
 @section('titulo') Estudios @endsection
 
 @section('contenido_admin')
-
+<?php
+$sessionTipo = session('sessionTipo');
+?>
 <!-- Reporte de usuarios -->
 <br><br><br><br>
 <div class="panel shadow mb-4">
@@ -15,11 +17,12 @@
             <a href="{{ route('estudio.crear') }}" class="btn btn-primary btn-circle btn-lg" title="Crear nuevo estudio">
                 <i class="fa fa-list fa-file"></i>
             </a><span class="text-primary"></span>
-
+            @if ($sessionTipo == 'admin')
             <a href="{{ route('estudio.desactivados') }}" class="btn btn-warning pull-right">
                 <i class="fa fa-list fa-rotate-left"></i>
                 <span class="text">Restaurar registros</span>
             </a>
+            @endif
         </nav>
     </div>
     <div class="panel-body">
@@ -60,6 +63,7 @@
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </td>
+                            @if ($sessionTipo == 'admin')
                             <td>
                                 <form method="POST" action="{{ route('estudio.desactivar', $estudio->id_estudio) }}" title="Eliminar">
                                     @csrf
@@ -67,6 +71,7 @@
                                     <button class=" btn btn-danger"><i class="fa fa-trash"></i></button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <td colspan="5">

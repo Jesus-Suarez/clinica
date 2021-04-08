@@ -2,7 +2,9 @@
 @section('titulo') Especialidades desactivadas @endsection
 
 @section('contenido_admin')
-
+<?php
+$sessionTipo = session('sessionTipo');
+?>
 <!-- Reporte de usuarios -->
 <br><br><br><br>
 <div class="panel shadow mb-4">
@@ -52,11 +54,13 @@
                                     <i class="fa fa-retweet"></i>
                                 </a>
                             </td>
+                            @if ($sessionTipo == 'admin')
                             <td>
                                 <a class="btn btn-danger " href="{{route('eliminarEspecialidad',['especialidad_id'=>$esp->especialidad_id])}}">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>
+                            @endif
                         </tr>
                         @endforeach
                         </form>

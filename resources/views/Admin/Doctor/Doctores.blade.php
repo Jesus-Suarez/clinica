@@ -3,6 +3,10 @@
 
 @section('contenido_admin')
 
+<?php
+$sessionTipo = session('sessionTipo');
+?>
+
 <!-- Reporte de usuarios -->
 <br><br><br><br>
 <div class="panel shadow mb-4">
@@ -11,15 +15,15 @@
             <h2 class="m-0 font-weight-bold text-primary">Lista de Doctores</h2><br>
         </center>
         <nav class="navbar navbar-light bg-light">
-
+            @if ($sessionTipo == 'admin')
             <a href="nuevoDoctor" class="btn btn-primary btn-circle btn-lg">
                 <i class="fa fa-list fa-file"></i>
             </a><span class="text-primary"></span>
-
             <a href="DoctoresElim" class="btn btn-warning pull-right">
                 <i class="fa fa-list fa-rotate-left"></i>
                 <span class="text">Restaurar registros</span>
             </a>
+            @endif
         </nav>
     </div>
     <div class="panel-body">
@@ -51,7 +55,9 @@
                             <th>Telefono</th>
                             <th>Especialidad</th>
                             <th>Correo</th>
+                            @if ($sessionTipo == 'admin')
                             <th colspan="2">Acciones</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -77,6 +83,7 @@
                             <td>{{$doc->telefono_doc}}</td>
                             <td>{{$doc->espec}}</td>
                             <td>{{$doc->email_doc}}</td>
+                            @if ($sessionTipo == 'admin')
                             <td>
                                 <a class="btn btn-primary " href="{{route('modificaDoctor',['id_doctor'=>$doc->id_doctor])}}">
                                     <i class="fa fa-edit"></i>
@@ -87,6 +94,7 @@
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>
+                            @endif
                         </tr>
                         @endforeach
                         </form>

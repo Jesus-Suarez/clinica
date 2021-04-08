@@ -1,6 +1,6 @@
 <?php
+$sessionTipo = session('sessionTipo');
 $sessionNombre = session('sessionNombre');
-$sessioTipo = session('sessioTipo');
 $sessionIdu = session('sessionIdu');
 $sessionFoto = session('sessionFoto');
 ?>
@@ -153,20 +153,9 @@ $sessionFoto = session('sessionFoto');
                         <li>
                             <a href="{{ asset('Doctores') }}"><i class="fa fa-users fa-fw"></i> Doctores</a>
                         </li>
-                        <li>
-                            <a href="{{ asset('Especialidades') }}"><i class="fa fa-tag fa-fw"></i> Especialidades</a>
-                        </li>
+                        @if ($sessionTipo == 'admin')
                         <li>
                             <a href="{{ route('paciente.index') }}"><i class="fa fa-user-plus fa-fw"></i> Pacientes</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('cita.index') }}"><i class="fa fa-check fa-fw"></i> Citas</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('consulta.index') }}"><i class="fa fa-book fa-fw"></i> Consultas</a>
-                        </li>
-                        <li>
-                            <a href="{{ asset('Tratamientos') }}"><i class="fa fa-signal fa-fw"></i> Tratamientos</a>
                         </li>
                         <li>
                             <a href="{{ asset('Horarios') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
@@ -174,11 +163,16 @@ $sessionFoto = session('sessionFoto');
                         <li>
                             <a href="{{ route('dia.index') }}"><i class="fa fa-times-circle fa-fw"></i> Dias</a>
                         </li>
+                        @endif
+                        @if ($sessionTipo == 'admin' or $sessionTipo=='doctor')
                         <li>
-                            <a href="{{ route('estudio.index') }}"><i class="fa fa-list fa-fw"></i> Estudios</a>
+                            <a href="{{ asset('Especialidades') }}"><i class="fa fa-tag fa-fw"></i> Especialidades</a>
                         </li>
                         <li>
-                            <a href="{{ asset('nuevaConsulta_trat') }}"><i class="fa fa-check-square-o fa-fw"></i> Consultas Tratamientos</a>
+                            <a href="{{ asset('Tratamientos') }}"><i class="fa fa-signal fa-fw"></i> Tratamientos</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('estudio.index') }}"><i class="fa fa-list fa-fw"></i> Estudios</a>
                         </li>
                         <li>
                             <a href="{{ route('medicamento.index') }}"><i class="fa fa-arrows fa-fw"></i> Medicamentos</a>
@@ -186,8 +180,13 @@ $sessionFoto = session('sessionFoto');
                         <li>
                             <a href="{{ route('consultorio.index') }}"><i class="fa fa-eye fa-fw"></i> Consultorios</a>
                         </li>
-
-
+                        <li>
+                            <a href="{{ route('consulta.index') }}"><i class="fa fa-check-square-o fa-fw"></i> Consultas</a>
+                        </li>
+                        @endif
+                        <li>
+                            <a href="{{ route('cita.index') }}"><i class="fa fa-check fa-fw"></i> Citas</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

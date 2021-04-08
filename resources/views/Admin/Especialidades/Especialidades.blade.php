@@ -2,7 +2,9 @@
 @section('titulo') Especialidades @endsection
 
 @section('contenido_admin')
-
+<?php
+$sessionTipo = session('sessionTipo');
+?>
 <!-- Reporte de usuarios -->
 <br><br><br><br>
 <div class="panel shadow mb-4">
@@ -15,11 +17,12 @@
             <a href="nuevaEspecialidad" class="btn btn-primary btn-circle btn-lg">
                 <i class="fa fa-list fa-file"></i>
             </a><span class="text-primary"></span>
-
+            @if ($sessionTipo == 'admin')
             <a href="EspecialidadesElim" class="btn btn-warning pull-right">
                 <i class="fa fa-list fa-rotate-left"></i>
                 <span class="text">Restaurar registros</span>
             </a>
+            @endif
         </nav>
     </div>
     <div class="panel-body">
@@ -58,11 +61,13 @@
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </td>
+                            @if ($sessionTipo == 'admin')
                             <td>
                                 <a class="btn btn-danger " href="{{route('desactivarEspecialidad',['especialidad_id'=>$esp->especialidad_id])}}">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>
+                            @endif
                         </tr>
                         @endforeach
                         </form>
