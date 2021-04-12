@@ -32,14 +32,7 @@ class consultaController extends Controller
 
     public function crear()
     {
-        return view('Admin.Consultas.crear', [
-            "Citas" => Cita::select('id_cita', 'nombre_doc', 'ap_pat_doc', 'ap_mat_doc')
-                ->orderBy('created_at', 'desc')
-                ->get(),
-            "Tratamientos" => tratamientos::select('id_paciente', 'nombre_pac', 'ap_pat_pac')
-                ->orderBy('created_at', 'desc')
-                ->get()
-        ]);
+        return view('Admin.Consultas.crear');
     }
 
     public function almacenar(Request $request)

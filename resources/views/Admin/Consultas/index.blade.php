@@ -46,8 +46,9 @@
                             <th>Clave</th>
                             <th>Fecha</th>
                             <th>Hora</th>
+                            <th>Doctor</th>
+                            <th>Paciente</th>
                             <th>Costo</th>
-                            <th>Tratamiento</th>
                             <th colspan="2">Acciones</th>
                         </tr>
                     </thead>
@@ -58,6 +59,7 @@
                             <td>{{$consulta->fecha_cita}}</td>
                             <td>{{$consulta->hora}}</td>
                             <td>$ {{$consulta->costo}}</td>
+                            <td>{{$consulta->descripcion_trat}}</td>
                             <td>{{$consulta->descripcion_trat}}</td>
                             <td>
                                 <a class="btn btn-primary" href="{{ route('consulta.editar', $consulta->id_consulta) }}" title="Editar">
@@ -73,7 +75,7 @@
                             </td>
                         </tr>
                         @empty
-                        <td colspan="6">
+                        <td colspan="7">
                             <center>No hay consultas para mostrar</center>
                         </td>
                         @endforelse

@@ -68,6 +68,7 @@ $sessionTipo = session('sessionTipo');
                             <td>{{$cita->nombre_pac}} {{$cita->ap_pat_pac}}</td>
                             <td>{{$cita->telefono_pac}}</td>
                             <td>{{$cita->numero}}</td>
+                            @if ($sessionTipo == 'admin')
                             <td>
                                 <a class="btn btn-primary" href="{{ route('cita.editar', $cita->id_cita) }}" title="Editar">
                                     <i class="fa fa-edit"></i>
@@ -80,6 +81,7 @@ $sessionTipo = session('sessionTipo');
                                     <button class=" btn btn-danger"><i class="fa fa-trash"></i></button>
                                 </form>
                             </td>
+                            @endif
                         </tr>
                         @empty
                         <td colspan="9">
